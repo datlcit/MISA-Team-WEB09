@@ -1,0 +1,130 @@
+/* Form nhap thong tin nhan vien */
+label{
+    font-weight: 700;
+}
+.wrap-form{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+}
+.info-form{
+    width: 900px;
+    height: 625px;
+    background-color: #fff;
+}
+.info-form-padding{
+    margin: 24px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.info-form-title p{
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.customer-or-provider{
+    margin-left: 24px;
+}
+
+.is-provider{
+    margin-left: 36px;
+}
+.is-provider p, .is-customer p{
+    margin-left: 8px;
+}
+
+.is-provider input[type="checkbox"], .is-customer input[type="checkbox"]{
+    width: 18px;
+    height: 18px;
+}
+
+.margin-left-8{
+    margin-left: 8px;
+}
+.margin-left-24{
+    margin-left: 24px;
+}
+.margin-left-32{
+    margin-left: 32px;
+}
+.personal-info{
+    display: flex;
+    width: 100%;
+    margin-top: 24px;
+}
+.personal-info-left, .personal-info-right{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.w-170px{
+    width: 170px;
+}
+.w-100{
+    width: 100%;
+}
+.m-input-fullname{
+    width: calc(100% - 178px);
+}
+.m-input-gender{
+    margin-top: 18px;
+}
+.m-input-date-range{
+    width: 170px;
+}
+.select-unit{
+    height: 36px;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    padding: 0px 12px;
+    line-height: 18px;
+}
+
+.contact-and-bank-info{
+    margin-top: 8px;
+    flex: 1;
+}
+.w-200px{
+    width: 204px;
+}
+.bank-info{
+    border-bottom: 1px solid #e6e6e6;
+}
+.info-btn-list{
+    padding-top: 24px;
+}
+.get-btn{
+    margin-right: 8px;
+}
+
+.contact-info, .bank-info{
+    width: 75%;
+    justify-content: space-between;
+}
+/* Canh bao ma nhan vien da ton tai */
+.error-id-dialog{
+    border: 1px solid black;
+    width: 400px;
+    height: 173px;
+}
+.error-id-dialog-padding{
+    padding: 24px 0;
+    margin: 0 24px;
+    border-bottom: 1px solid black;
+}
+.warning-icon-and-text{
+    display: flex;
+}
+.warning-icon{
+    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -598px -463px;
+	width: 36px;
+	height: 37px;
+}
+.warning-text p{
+    margin-top: 5px;
+    margin-left: 24px;
+}
+.btn-agree{
+   margin-left: 296px;
+   margin-top: 24px;
+}

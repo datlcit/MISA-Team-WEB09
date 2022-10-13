@@ -1,0 +1,24 @@
+body{
+    margin: 0;
+}
+
+.header{
+    float: left;
+    height: 56px;
+    width: 100%;
+    background-color: aqua;
+}
+
+.sidebar{
+    float: left;
+    width: 200px;
+    height: calc(100vh - 56px);
+    background-color: #38393d;
+}
+
+.main{
+    float: left;
+    width: calc(100% - 200px);
+    height: calc(100vh - 56px);
+    background-color: blue;
+}
