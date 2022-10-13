@@ -2,11 +2,6 @@
 label{
     font-weight: 700;
 }
-.wrap-form{
-    width: 100%;
-    height: 100vh;
-    background-color: black;
-}
 .info-form{
     width: 900px;
     height: 625px;
@@ -87,8 +82,8 @@ label{
 .w-200px{
     width: 204px;
 }
-.bank-info{
-    border-bottom: 1px solid #e6e6e6;
+.bank-info-wrapper{
+    border-bottom: 1px solid #BDBDBD;
 }
 .info-btn-list{
     padding-top: 24px;
@@ -102,15 +97,26 @@ label{
     justify-content: space-between;
 }
 /* Canh bao ma nhan vien da ton tai */
+.bg-overlay{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #00000050;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .error-id-dialog{
-    border: 1px solid black;
     width: 400px;
     height: 173px;
+    background-color: #fff;
 }
 .error-id-dialog-padding{
     padding: 24px 0;
     margin: 0 24px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #BDBDBD;
 }
 .warning-icon-and-text{
     display: flex;

@@ -27,7 +27,14 @@
     background-color: #fff;
     color: #000;
     border: 1px solid #8d9096;
-    
+}
+
+.m-btn-bg-white:hover{
+    background-color: #eee;
+}
+
+.m-btn-bg-white:focus{
+    background-color: #BDBDBD;
 }
 
 .m-btn-menu{
