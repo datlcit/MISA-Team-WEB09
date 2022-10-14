@@ -122,7 +122,7 @@ label{
     display: flex;
 }
 .warning-icon{
-    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -598px -463px;
+    background: url(../../assets/img/Sprites.64af8f61.svg) no-repeat -598px -463px;
 	width: 36px;
 	height: 37px;
 }

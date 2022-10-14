@@ -2,6 +2,7 @@
 @import url(../css/components/textfield.css);
 @import url(../css/components/dropdown.css);
 @import url(../css/components/dialog.css);
+@import url(../css/components/table.css);
 @import url(../lib/icofont/icofont/icofont.min.css);
 
 *{
@@ -40,6 +41,10 @@ p{
 .row{
     display: flex;
 }
+.m-flex{
+    display: flex;
+    flex-wrap: wrap;
+}
 .row-jus-center{
     display: flex;
     align-items: center;
@@ -60,106 +65,92 @@ p{
     align-items: center;
     justify-content: flex-end;
 }
+.cs-pointer:hover{
+    cursor: pointer;
+}
 .wrapper{
     display: flex;
     height: 100vh;
 }
 
-/* Header and Main */
-.header-and-main{
-    width: calc(100% - 200px);
-}
-/* Header */
-.header{
-    height: 56px;
-}
-
-.m-flex{
-    display: flex;
-    flex-wrap: wrap;
-}
-.m-wrap-header-content{
-    padding: 10px 16px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.m-header-left, .m-header-right, .m-profile{
-    align-items: center;
-}
-
-.m-company-dropdown{
-    margin-left: 16px;
-}
-
-.m-profile-ava{
-    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -116px -1662px;
-    cursor: pointer;
-    background-color: #212121;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-.m-arrow-profile{
-    background-image: url(../assets/img/Sprites.64af8f61.svg);
-    background-position: -464px -360px;
-    cursor: pointer;
-}
-.m-profile-name{
-    margin: 0 5px;
-    font-size: 14px;
-    font-weight: 700;
-    color: #212121;
-}
-
-/* sidebar */
+/* --------------------------------- */
+/* CHIA LAYOUT */
 .sidebar{
     width: 200px;
     height: 100%;
 }
-.m-sidebar-top{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+.header-and-main{
+    height: 100%;
+    width: calc(100% - 200px);
+}
+.header{
+    height: 56px;
+    width: 100%;
+}
+.main{
+    width: 100%;
+    height: calc(100% - 56px);
+}
+
+/* --------------------------------- */
+/* SIDEBAR */
+
+.icon-grid-and-logo{
     height: 56px;
     background-color: #38393d;
 }
 
+.m-icon-grid{
+    background: url(../../assets/img/Sprites.64af8f61.svg) no-repeat -428px -92px;
+    margin: 16px;
+}
+
+/* CHiều cao chuẩn cho logo theo STL */
+.m-logo img{
+    height: 32px;
+}
+
+/* Tính chiều cao thích hợp cho sidebar */
 .m-sidebar-list{
     background-color: #38393d;
     height: calc(100vh - 56px);
     overflow: auto;
 }
 
+.list-function-sidebar{
+    padding: 24px 12px;
+}
+
+/* ĐỔi màu từng phần tử trong list */
 .function-wrap:hover{
     background-color: #757575;
+    border-radius: 4px;
 }
-.function-sidebar-link{
+
+/* Căn từng phần tử trong danh sách sidebar theo STL */
+.function-wrap a{
     display: flex;
     align-items: center;
     padding: 10px 12px;
     height: 44px;
     margin-bottom: 4px;
 }
-.function-side-bar{
+
+/* Căn ngang icon và text trong từng phần tử trong ds */
+.function-wrap a li{
     display: flex;
     align-items: center;
     list-style: none;
     
 }
 
-
-
-.function-side-bar p{
+/* Chỉnh chữ trong danh sách sidebar theo STL */
+.function-wrap a li p{
     color: #fff;
     font-size: 14px;
     line-height: 0px;
     vertical-align: center;
 }
-
-.function-icon{
-    cursor: pointer;
-}
-
 
 /* Set background icon từng function trong list */
 
@@ -224,148 +215,125 @@ p{
     margin-right: 12px;
 }
 
-/* Main */
+/* ------------------------------------------------------------------- */
+/* HEADER */
 
-.main{
-    width: 100%;
-    height: calc(100vh - 56px);
-    background-color: #EEEFF1;
+/* Căn lề và giãn nội dung header */
+.m-wrap-header-content{
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
 }
 
+/* Căn giữa toàn bộ item trong header */
+.m-header-left, .m-header-right, .m-profile{
+    align-items: center;
+}
+
+/* nút icon menu */
+.icon-menu{
+    background-image: url(../../assets/img/Sprites.64af8f61.svg);
+    background-position: -843px -30px;
+}
+
+/* Cách trái cho dropdown, dropdown chi tiết ở tệp dropdown.css */
+.m-company-dropdown{
+    margin-left: 16px;
+}
+
+/* icon thông báo */
+.m-icon-notification{
+    background-image: url(../../assets/img/Sprites.64af8f61.svg);
+    background-position: -787px -30px;
+    margin-right: 24px;
+}
+
+/* ảnh đại diện */
+.m-profile-ava{
+    margin-right: 4px;
+}
+
+/* chỉnh cỡ chữ và màu cho icon trên header*/
+.m-profile i, .m-profile-ava i{
+    font-size: 24px;
+    color: #65696E;
+}
+
+/* Tên user */
+.m-profile-name{
+    margin: 0 5px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #212121;
+}
+
+/* ------------------------------------------ */
+/* MAIN */
+
+/* Tiêu đề */
 .title-table-and-add-btn{
     padding: 24px 24px;
 }
-.title-text{
+.title-table h1{
     font-size: 24px;
     font-weight: 700;
 }
 
-.searchbar-and-table{
+/* Căn lề và màu nền */
+.toolbar-and-table{
     margin: 0 24px;
     background-color: #fff;
     height: calc(100% - 96px);
 }
 
-.searchbar-and-table-padding{
+.toolbar-and-table-padding{
     padding: 12px;
     padding-bottom: 0;
     height: 100%;
 }
 
-/* TABLE */
-.table-area{
-    margin-top: 12px;
-    overflow-x: auto;
-    overflow-y: auto;
-    height: calc(100% - 104px);
-}
-.table-employee{
-    border: unset;
-}
-
-tr:hover td{
-    background-color: #F8F8F8;
-}
-
-th, td{
-    border: 1px solid #EEEEEE;
-    border-collapse: collapse;
-    min-width: 56px;
-    min-height: 48px;
-}
-
-th{
-    border-top: unset;
-    background-color: #EEEEEE;
-}
-
-.table-row th:first-child, .table-row td:first-child{
-    border-left: none;
-}
-
-.table-row th:last-child, .table-row td:last-child{
-    border-right: none;
-}
-
-.table-row-titles{
-    position: sticky;
-    top: 0;
-    z-index: 2;
-}
-
-.title-column{
-    padding: 0 16px;
-}
-
-.title-column p{
-    text-transform: uppercase;
-    font-size: 14px;
-    
-}
-
-.title-date p, .table-data-date p{
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 14px;
-    padding: 0;
-}
-
-.table-data{
-    padding: 0 16px;
-    font-size: 14px;
-}
-
-.th-edit-title{
-    position: sticky;
-    right: 0;
-}
-
-.td-edit-sticky{
-    position: sticky;
-    right: 0;
-    background-color: #fff;
-    z-index: 1;
-}
-
-.cell-edit{
+/* input search trên MAIN */
+.m-search{
     display: flex;
     align-items: center;
-    justify-content: center;
-}
-
-.cell-edit p{
-    color: #1565C0;
+    justify-content: flex-start;
+    position: relative;
     margin-right: 12px;
-    font-weight: 700;
 }
 
-.wrap-btn-edit{
-    width: 24px;
-    height: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid transparent;
+/* input tìm kiếm */
+.m-search input{
+    padding-right: 36px;
+    width: 260px;
 }
 
-.wrap-btn-edit:hover{
-    border: 1px solid #1565C0;
-    cursor: pointer;
+/* icon tìm kiếm */
+.m-icon-search{
+    background-image: url(../../assets/img/Sprites.64af8f61.svg);
+    background-position: -88px -32px;
+    right: 8px;
+    position: absolute;
 }
 
-/* Chia kích thước width từng loại cột cho bảng */
+/* Icon refresh */
+.m-icon-refresh{
+    background-image: url(../../assets/img/Sprites.64af8f61.svg);
+    background-position: -1097px -87px;;
+}
 
 
-/* PAGINATION */
+
+/* PHẦN BẢNG Ở TỆP table.css */ /* PHẦN BẢNG Ở TỆP table.css */ /* PHẦN BẢNG Ở TỆP table.css */ /* PHẦN BẢNG Ở TỆP table.css */
+
+
+
+/* Phần chân trang */
 .total-record-and-pagination{
     padding: 10px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 56px;
-}
-.pagination{
-    display: flex;
 }
 .btn-page{
     display: flex;
@@ -376,27 +344,7 @@ th{
     font-weight: 700;
 }
 
-.m-dropdown-select-range-item{
-    min-width: 200px;
-    border: 1px solid #E6E6E6;
-}
-.m-wrap-dropup-option{
-    max-height: 200px;
-	position: absolute;
-	bottom: calc(100% + 1px);
-	background-color: #fff;
-	z-index: 3;
-	overflow-y: scroll;
-	padding: 8px;
-	border-radius: 4px;
-    border: 1px solid #000;
-
-    display: none;
-}
-.m-wrap-dropup-option{
-    border: 1px solid #306F24;
-}
-.btn-before, .btn-after{
+.btn-prev, .btn-next{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -423,3 +371,6 @@ th{
     margin-left: 24px;
     margin-right: 12px;
 }
+
+
+

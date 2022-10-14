@@ -1,0 +1,123 @@
+/* TABLE */
+
+/* Các thuộc tính Table chung theo STL */
+th, td{
+    border: 1px solid #EEEEEE;
+    border-collapse: collapse;
+    min-width: 56px;
+    min-height: 48px;
+}
+
+th{
+    border-top: unset;
+    background-color: #EEEEEE;
+}
+
+tr:hover td{
+    background-color: #F8F8F8;
+}
+
+/* Căn lề hàng tiêu đề và nội dung tiêu đè*/
+.title-column{
+    padding: 0 16px;
+}
+
+.title-column p{
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+/* Chỉnh căn lề và cỡ chữ cho từng ô trong table */
+.table-data{
+    padding: 0 16px;
+    font-size: 14px;
+}
+
+/* BẢNG NHÂN VIÊN */
+/* Tạo thanh cuộn trái phải và đo chiều cao thích hợp cho bảng */
+.table-area{
+    margin-top: 12px;
+    overflow-x: auto;
+    overflow-y: auto;
+    height: calc(100% - 104px);
+}
+
+/* Loại bỏ viền của bảng */
+.table-employee{
+    border: unset;
+}
+
+/* Thiết lập viền các ô tránh viền ngoài */
+.table-row th:first-child, .table-row td:first-child{
+    border-left: none;
+}
+
+.table-row th:last-child, .table-row td:last-child{
+    border-right: none;
+}
+
+/* Giữ nguyên hàng tiêu đề khi scroll dọc*/
+.table-row-titles{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+/* Căn giữa cho cột dữ liệu ngày tháng */
+.title-date p, .table-data-date p{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 0;
+}
+
+/* Giữ nguyên cột Chức năng luôn hiện khi scroll ngang */
+.th-edit-title{
+    position: sticky;
+    right: 0;
+}
+
+.td-edit-sticky{
+    position: sticky;
+    right: 0;
+    background-color: #fff;
+    z-index: 1;
+}
+
+/* Căn giữa các phần tử trong ô chức năng */
+.cell-edit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Chữ Sửa */
+.cell-edit p{
+    color: #1565C0;
+    margin-right: 12px;
+    font-weight: 700;
+}
+
+/* Icon mũi tên gọi các chức năng */
+.wrap-btn-edit{
+    width: 24px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+}
+
+/* lấy icon mũi tên */
+.btn-edit-function{
+    background: url(../../assets/img/Sprites.64af8f61.svg) no-repeat -900px -365px;
+    width: 8px;
+	height: 5px;
+    cursor: pointer;
+}
+
+/* Icon mũi tên gọi các chức năng khi di chuột vào */
+.wrap-btn-edit:hover{
+    border: 1px solid #1565C0;
+    cursor: pointer;
+}

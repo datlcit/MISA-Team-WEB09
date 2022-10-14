@@ -1,3 +1,4 @@
+/* Thuộc tính Button chung theo STL */
 .m-btn{
     min-width: 80px;
     height: 36px;
@@ -10,6 +11,7 @@
     line-height: 18px;
 }
 
+/* Các nút nền xanh lá */
 .m-btn-bg-green{
     background-color: #409330;
     color: #fff;
@@ -23,6 +25,7 @@
     background-color: #306F24;
 }
 
+/* Các nút nền trắng*/
 .m-btn-bg-white{
     background-color: #fff;
     color: #000;
@@ -37,11 +40,11 @@
     background-color: #BDBDBD;
 }
 
-.m-btn-menu{
-    background-image: url(../assets/img/Sprites.64af8f61.svg);
+/* .m-btn-menu{
+    background-image: url(../../assets/img/Sprites.64af8f61.svg);
     background-position: -843px -30px;
     cursor: pointer;
-}
+} */
 
 .m-icon:hover{
     cursor: pointer;
@@ -61,41 +64,32 @@
 }
 
 .m-icon-search{
-    background-image: url(../assets/img/Sprites.64af8f61.svg);
+    background-image: url(../../assets/img/Sprites.64af8f61.svg);
     background-position: -88px -32px;
     right: 8px;
     position: absolute;
 }
 
-.m-btn-notification{
-    background-image: url(../assets/img/Sprites.64af8f61.svg);
+/* .m-btn-notification{
+    background-image: url(../../assets/img/Sprites.64af8f61.svg);
     background-position: -787px -30px;
     cursor: pointer;
     margin-right: 24px;
-}
+} */
 
-.m-btn-refresh{
-    background-image: url(../assets/img/Sprites.64af8f61.svg);
+/* .m-btn-refresh{
+    background-image: url(../../assets/img/Sprites.64af8f61.svg);
     background-position: -1097px -87px;;
     cursor: pointer;
-}
+} */
 
 /* sidebar */
-.m-btn-grid{
-    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -428px -92px;
-    margin-left: 24px;
-    margin-right: 16px;
+/* .m-btn-grid{
+    background: url(../../assets/img/Sprites.64af8f61.svg) no-repeat -428px -92px;
+    margin: 16px;
     cursor: pointer;
 }
 .m-logo img{
     height: 32px;
     cursor: pointer;
-}
-
-/* TABLE */
-.btn-edit-function{
-    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -900px -365px;
-    width: 8px;
-	height: 5px;
-    cursor: pointer;
-}
+} */

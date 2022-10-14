@@ -1,13 +1,4 @@
-
-
-.m-search{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    position: relative;
-    margin-right: 12px;
-}
-
+/* Thuộc tính Input chung theo STL */
 .m-input{
     height: 36px;
     border: 1px solid #E0E0E0;
@@ -31,10 +22,19 @@
   	outline: none;
 }
 
+/* input search trên MAIN */
+/* .m-search{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    margin-right: 12px;
+}
+
 .m-input-searchbar{
     padding-right: 36px;
     width: 260px;
-}
+} */
 
 /* Thông tin nhân viên */
 .m-information{
@@ -69,4 +69,5 @@ input[type="checkbox"] {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 48px;
 }
