@@ -90,22 +90,29 @@ p{
 .main{
     width: 100%;
     height: calc(100% - 56px);
+    background-color: #EEEFF1;
 }
 
 /* --------------------------------- */
 /* SIDEBAR */
 
+/* Set chiều cao và nền cho vùng logo */
 .icon-grid-and-logo{
     height: 56px;
     background-color: #38393d;
 }
 
-.m-icon-grid{
-    background: url(../../assets/img/Sprites.64af8f61.svg) no-repeat -428px -92px;
+.icon-grid-and-logo > a{
     margin: 16px;
 }
 
+/* icon lưới dẫn về menu */
+.m-icon-grid{
+    background: url(../../assets/img/Sprites.64af8f61.svg) no-repeat -425px -88px;
+}
+
 /* CHiều cao chuẩn cho logo theo STL */
+
 .m-logo img{
     height: 32px;
 }
@@ -117,8 +124,9 @@ p{
     overflow: auto;
 }
 
+/* căn lề sidebar */
 .list-function-sidebar{
-    padding: 24px 12px;
+    padding: 24px 0px;
 }
 
 /* ĐỔi màu từng phần tử trong list */
@@ -155,19 +163,19 @@ p{
 /* Set background icon từng function trong list */
 
 .function-icon-1{
-    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -33px -1630px;
+    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -30px -1628px;
     margin-right: 12px;
 }
 .function-icon-2{
-    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -78px -1631px;
+    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -73px -1628px;
     margin-right: 12px;
 }
 .function-icon-3{
-    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -121px -1633px;
+    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -117px -1628px;
     margin-right: 12px;
 }
 .function-icon-4{
-    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -165px -1632px;
+    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -161px -1628px;
     margin-right: 12px;
 }
 .function-icon-5{
@@ -175,43 +183,43 @@ p{
     margin-right: 12px;
 }
 .function-icon-6{
-    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -254px -1632px;
+    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -204px -1628px;
     margin-right: 12px;
 }
 .function-icon-7{
-    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -294px -1632px;
+    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -291px -1628px;
     margin-right: 12px;
 }
 .function-icon-8{
-    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -339px -1633px;
+    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -336px -1628px;
     margin-right: 12px;
 }
 .function-icon-9{
-    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -382px -1632px;
+    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -378px -1630px;
     margin-right: 12px;
 }
 .function-icon-10{
-    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -427px -1634px;
+    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -423px -1630px;
     margin-right: 12px;
 }
 .function-icon-11{
-    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -471px -1633px;
+    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -467px -1628px;
     margin-right: 12px;
 }
 .function-icon-12{
-    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -514px -1632px;
+    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -510px -1628px;
     margin-right: 12px;
 }
 .function-icon-13{
-    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -382px -1664px;
+    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -378px -1659px;
     margin-right: 12px;
 }
 .function-icon-14{
-    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -552px -1636px;
+    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -547px -1628px;
     margin-right: 12px;
 }
 .function-icon-15{
-    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -207px -1667px;
+    background: url(../assets/img/Sprites.64af8f61.svg) no-repeat -204px -1664px;
     margin-right: 12px;
 }
 
@@ -336,7 +344,6 @@ p{
     height: 56px;
 }
 .btn-page{
-    display: flex;
     padding: 10px 24px;
 }
 

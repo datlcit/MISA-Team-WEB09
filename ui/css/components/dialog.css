@@ -4,13 +4,27 @@ label{
 }
 .info-form{
     width: 900px;
-    height: 625px;
     background-color: #fff;
 }
 .info-form-padding{
-    margin: 24px;
+    padding: 32px;
     display: flex;
     flex-wrap: wrap;
+    position: relative;
+}
+
+.info-form-padding .icofont-question-circle, .info-form-padding .icofont-close-line{
+    font-size: 32px;
+    position: absolute;
+    top: 16px;
+    color: #212121;
+}
+
+.icofont-question-circle{
+    right:64px;
+}
+.icofont-close-line{
+    right: 16px;
 }
 .info-form-title p{
     font-weight: 700;
@@ -52,6 +66,12 @@ label{
     display: flex;
     flex-wrap: wrap;
 }
+.personal-info-left{
+    padding-right: 12px;
+}
+.personal-info-right{
+    padding-left: 12px;
+}
 .w-170px{
     width: 170px;
 }
@@ -67,20 +87,13 @@ label{
 .m-input-date-range{
     width: 170px;
 }
-.select-unit{
-    height: 36px;
-    border: 1px solid #E0E0E0;
-    border-radius: 4px;
-    padding: 0px 12px;
-    line-height: 18px;
-}
 
 .contact-and-bank-info{
     margin-top: 8px;
     flex: 1;
 }
-.w-200px{
-    width: 204px;
+.contact-info div, .bank-info div{
+    width: calc((100% - 24px) / 4);
 }
 .bank-info-wrapper{
     border-bottom: 1px solid #BDBDBD;
@@ -92,11 +105,14 @@ label{
     margin-right: 8px;
 }
 
-.contact-info, .bank-info{
+/* .contact-info, .bank-info{
     width: 75%;
     justify-content: space-between;
-}
+} */
+
 /* Canh bao ma nhan vien da ton tai */
+
+/* Vùng mờ tối xung quanh */
 .bg-overlay{
     position: fixed;
     top: 0;
@@ -108,29 +124,55 @@ label{
     justify-content: center;
     align-items: center;
 }
+
+/* Khung cảnh báo */
 .error-id-dialog{
+    border-radius: 4px;
     width: 400px;
     height: 173px;
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
 }
+
+/* Vùng căn lề cho cảnh báo */
 .error-id-dialog-padding{
     padding: 24px 0;
     margin: 0 24px;
     border-bottom: 1px solid #BDBDBD;
 }
+
+/* căn ngang icon và text */
 .warning-icon-and-text{
     display: flex;
 }
+
 .warning-icon{
     background: url(../../assets/img/Sprites.64af8f61.svg) no-repeat -598px -463px;
 	width: 36px;
 	height: 37px;
 }
+
 .warning-text p{
     margin-top: 5px;
     margin-left: 24px;
 }
+
+/* set vị trí cho button ĐỒng ý trong trang check-id.html*/
 .btn-agree{
-   margin-left: 296px;
-   margin-top: 24px;
+    flex: 1;
+    display: flex;
+    padding: 24px;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
+
+/* set vị trí cho button Đóng trong trang khong-duoc-de-trong.html*/
+.red-warning-icon{
+    background: url(../../assets/img/Sprites.64af8f61.svg) no-repeat -752px -462px;
+	width: 36px;
+	height: 36px;
+}
+.btn-close{
+    flex: 1;
+ }

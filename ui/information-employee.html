@@ -5,12 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/final-main.css">
 </head>
 <body>
     <div class="bg-overlay">
         <div class="info-form">
             <div class="info-form-padding">
+                <i class="icofont-question-circle cs-pointer"></i>
+                <i class="icofont-close-line cs-pointer"></i>
                 <div class="info-form-title">
                     <p>Thông tin nhân viên</p>
                 </div>
@@ -36,22 +38,27 @@
                         </div>
                         <div class="m-flex m-information m-input-unit w-100">
                             <label title="Đơn vị phòng">Đơn vị <span>*</span></label>
-                            <!-- <input class="m-input m-input-information" type="text" name="" id=""> -->
-                            <select class="select-unit m-input-information" name="" id="">
-                                <option value="">Phòng Nhân Sự</option>
-                                <option value="">Phòng IT</option>
-                                <option value="">Phòng Marketing</option>
-                                <option value="">Phòng Hành Chính</option>
-                                <option value="">Phòng Kế Toán</option>
-                                <option value="">Phòng CSKH</option>
-                            </select>
+                            <div class="select-department">
+                                <div class="m-dropdown m-dropup-range-item row-jus-between">
+                                    <p>Phòng nhân sự</p>
+                                    <div class="iconfont-div"><i class="icofont-curved-down"></i></div>
+                                    <div class="wrap-up-down-option m-wrap-dropdown-option">
+                                        <div class="m-option"><p>Phòng tài chính</p></div>
+                                        <div class="m-option"><p>Phòng kế toán</p></div>
+                                        <div class="m-option"><p>Phòng kinh doanh</p></div>
+                                        <div class="m-option"><p>Phòng hành chính</p></div>
+                                        <div class="m-option"><p>Phòng IT</p></div>
+                                        <div class="m-option"><p>Phòng marketing</p></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="m-flex m-information m-input-duty w-100">
                             <label title="Chức danh trong công ty">Chức danh</label>
                             <input class="m-input m-input-information" type="text" name="" id="">
                         </div>
                     </div>
-                    <div class="personal-info-right margin-left-24">
+                    <div class="personal-info-right">
                         <div class="m-flex m-information m-input-date m-input-birthday w-170px">
                             <label title="Ngày tháng năm sinh">Ngày sinh</label>
                             <input class="m-input m-input-information" type="date" name="" id="">
@@ -82,39 +89,37 @@
                     </div>
                 </div>
                 <div class="contact-and-bank-info">
-                    <div class="m-flex m-information m-input-address">
+                    <div class="m-flex m-information m-input-address w-100">
                         <label title="Địa chỉ nhà riêng">Địa chỉ</label>
-                        <input class="m-input m-input-information w-170px w-100" type="text" name="" id="">
+                        <input class="m-input m-input-information" type="text" name="" id="">
                     </div>
-                    <div class="contact-info-wrapper">
-                        <div class="m-flex contact-info">
-                            <div class="m-flex m-information m-input-mobile">
-                                <label title="Số điện thoại di động">ĐT di động</label>
-                                <input class="m-input m-input-information w-200px" type="text" name="" id="">
-                            </div>
-                            <div class="m-flex m-information m-input-phone">
-                                <label title="Số điện thoại cố định">ĐT cố định</label>
-                                <input class="m-input m-input-information w-200px" type="text" name="" id="">
-                            </div>
-                            <div class="m-flex m-information m-input-email">
-                                <label title="Email">Email</label>
-                                <input class="m-input m-input-information w-200px" type="text" name="" id="">
-                            </div>
+                    <div class="row-jus-start contact-info w-100">
+                        <div class="m-flex m-information m-input-mobile">
+                            <label title="Số điện thoại di động">ĐT di động</label>
+                            <input class="m-input m-input-information" type="text" name="" id="">
+                        </div>
+                        <div class="m-flex m-information m-input-phone margin-left-8">
+                            <label title="Số điện thoại cố định">ĐT cố định</label>
+                            <input class="m-input m-input-information" type="text" name="" id="">
+                        </div>
+                        <div class="m-flex m-information m-input-email margin-left-8">
+                            <label title="Email">Email</label>
+                            <input class="m-input m-input-information" type="text" name="" id="">
                         </div>
                     </div>
                     <div class="bank-info-wrapper">
-                        <div class="m-flex bank-info">
+                        <div class="m-flex bank-info w-100">
                             <div class="m-flex m-information m-input-bankId">
                                 <label title="Số tài khoản ngân hàng">Tài khoản ngân hàng</label>
-                                <input class="m-input m-input-information w-200px" type="text" name="" id="">
+                                <input class="m-input m-input-information" type="text" name="" id="">
                             </div>
                             <div class="m-flex m-information m-input-bankName margin-left-8">
                                 <label title="Tên ngân hàng">Tên ngân hàng</label>
-                                <input class="m-input m-input-information w-200px" type="text" name="" id="">
+                                <input class="m-input m-input-information" type="text" name="" id="">
                             </div>
                             <div class="m-flex m-information m-input-bankBranch margin-left-8">
                                 <label title="Chi nhánh ngân hàng">Chi nhánh</label>
-                                <input class="m-input m-input-information w-200px" type="text" name="" id="">
+                                <input class="m-input m-input-information" type="text" name="" id="">
                             </div>
                         </div>
                     </div>

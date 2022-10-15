@@ -49,8 +49,8 @@ label{
     font-size: 14px;
     font-weight: 500;
 }
-.m-input-information{
-    margin: 8px 0 12px 0;
+.m-input-information, .select-department{
+    margin: 8px 0 24px 0;
 }
 .m-input-date .m-input-information::placeholder{
     font-style: normal;
@@ -60,7 +60,7 @@ input[type="radio"] {
     height: 18px;
 }
 
-/* TABLE */
+/* Checkbox trong bảng TABLE */
 input[type="checkbox"] {
     width: 24px;
     height: 24px;
@@ -70,4 +70,12 @@ input[type="checkbox"] {
     justify-content: center;
     align-items: center;
     min-height: 48px;
+}
+
+/*---------------------------------
+
+/* ERROR INPUT */
+
+.err-input input{
+    border-color: #E60000;
 }

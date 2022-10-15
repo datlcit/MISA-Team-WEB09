@@ -24,6 +24,7 @@
 	font-size: 14px;
 	font-weight: 500;
 	padding: 8px;
+	white-space: nowrap;
 }
 
 /* Tương tác với từng khung lựa chọn */
@@ -32,9 +33,25 @@
 	border-radius: 4px;
 }
 
+/* Thuộc tính chung của khung lựa chọn dropdown và dropup theo STL */
+.wrap-up-down-option{
+	max-height: 200px;
+	position: absolute;
+	background-color: #fff;
+	border-radius: 4px;
+	z-index: 3;
+	overflow-y: scroll;
+    border: 1px solid #000;
+	width: 100%;
+	left: 0;
+
+	/* ẨN CHO ĐỠ VƯỚNG ------------------------*/
+	display: none;
+}
+
 /* ---------------------------------------------------------------------- */
 
-/* Hai nút dropdown trên header và dropup dưới footer*/
+/* Hai nút dropdown trên header và dropup dưới footer và dropdown ở trang thông tin nhân viên*/
 .m-dropdown-list-company, .m-dropup-range-item{
 	border: 1px solid transparent;
 	min-width: 300px;
@@ -55,18 +72,6 @@
 	padding-right: 24px;
 }
 
-/* Thuộc tính chung của khung lựa chọn dropdown và dropup theo STL */
-.wrap-up-down-option{
-	max-height: 200px;
-	position: absolute;
-	background-color: #fff;
-	border-radius: 4px;
-	z-index: 3;
-	overflow-y: scroll;
-    border: 1px solid #000;
-	width: 100%;
-	left: 0;
-}
 /* Dropdown trên HEADER */
 .m-wrap-dropdown-option{
 	top: calc(100% + 1px);

@@ -1,8 +1,14 @@
 /* TABLE */
 
 /* Các thuộc tính Table chung theo STL */
+
+/* Loại bỏ viền của bảng */
+table{
+    border: unset;
+}
+
 th, td{
-    border: 1px solid #EEEEEE;
+    border: 1px solid #E0E0E0;
     border-collapse: collapse;
     min-width: 56px;
     min-height: 48px;
@@ -11,6 +17,10 @@ th, td{
 th{
     border-top: unset;
     background-color: #EEEEEE;
+}
+
+td{
+    color: #212121;
 }
 
 tr:hover td{
@@ -33,6 +43,8 @@ tr:hover td{
     font-size: 14px;
 }
 
+/* -------------------------------------------------------------- */
+
 /* BẢNG NHÂN VIÊN */
 /* Tạo thanh cuộn trái phải và đo chiều cao thích hợp cho bảng */
 .table-area{
@@ -40,11 +52,6 @@ tr:hover td{
     overflow-x: auto;
     overflow-y: auto;
     height: calc(100% - 104px);
-}
-
-/* Loại bỏ viền của bảng */
-.table-employee{
-    border: unset;
 }
 
 /* Thiết lập viền các ô tránh viền ngoài */
@@ -78,10 +85,9 @@ tr:hover td{
 }
 
 .td-edit-sticky{
-    position: sticky;
+    /* position: sticky; */
     right: 0;
     background-color: #fff;
-    z-index: 1;
 }
 
 /* Căn giữa các phần tử trong ô chức năng */
@@ -92,8 +98,8 @@ tr:hover td{
 }
 
 /* Chữ Sửa */
-.cell-edit p{
-    color: #1565C0;
+.cell-edit .edit-text{
+    color: #5298e7;
     margin-right: 12px;
     font-weight: 700;
 }
@@ -106,6 +112,7 @@ tr:hover td{
     align-items: center;
     justify-content: center;
     border: 1px solid transparent;
+    position: relative;
 }
 
 /* lấy icon mũi tên */
@@ -113,11 +120,31 @@ tr:hover td{
     background: url(../../assets/img/Sprites.64af8f61.svg) no-repeat -900px -365px;
     width: 8px;
 	height: 5px;
-    cursor: pointer;
 }
 
 /* Icon mũi tên gọi các chức năng khi di chuột vào */
 .wrap-btn-edit:hover{
     border: 1px solid #1565C0;
     cursor: pointer;
+}
+
+/* Danh sách các chức năng */
+.edit-list{
+    display: block;
+    overflow: hidden;
+    width: max-content;
+    border: 2px solid #EEEEEE;
+    top: calc(100% + 1px);
+    left: -100px;
+
+    /* Ân bớt ds chức năng */
+    display: none;
+}
+
+.edit-list .m-option:hover{
+    background-color: #E0E0E0;
+}
+
+.edit-list .m-option:hover p{
+    color: #06da10;
 }
