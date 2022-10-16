@@ -50,7 +50,8 @@ label{
     font-weight: 500;
 }
 .m-input-information, .select-department{
-    margin: 8px 0 24px 0;
+    margin-top: 8px;
+    margin-bottom: 24px;
 }
 .m-input-date .m-input-information::placeholder{
     font-style: normal;

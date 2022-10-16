@@ -72,17 +72,14 @@ label{
 .personal-info-right{
     padding-left: 12px;
 }
-.w-170px{
-    width: 170px;
+.w-40{
+    width: 40%;
 }
 .w-100{
     width: 100%;
 }
-.m-input-fullname{
-    width: calc(100% - 178px);
-}
-.m-input-gender{
-    margin-top: 18px;
+.m-input-fullname, .m-input-cmnd, .m-input-gender{
+    flex: 1;
 }
 .m-input-date-range{
     width: 170px;
