@@ -80,14 +80,14 @@ tr:hover td{
 }
 
 /* Giữ nguyên cột Chức năng luôn hiện khi scroll ngang */
-/* .th-edit-title{
+.th-edit-title{
     position: sticky;
     right: 0;
-} */
+}
 
 .td-edit-sticky{
-    /* position: sticky;
-    right: 0; */
+    position: sticky;
+    right: 0;
     background-color: #fff;
 }
 
@@ -139,7 +139,7 @@ tr:hover td{
     left: -100px;
 
     /* Ân bớt ds chức năng */
-    /* display: none; */
+    display: none;
 }
 
 .edit-list .m-option:hover{

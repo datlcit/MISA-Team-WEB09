@@ -71,6 +71,7 @@ p{
 .wrapper{
     display: flex;
     height: 100vh;
+    width: 100%;
 }
 
 /* --------------------------------- */
@@ -86,6 +87,7 @@ p{
 .header{
     height: 56px;
     width: 100%;
+    background-color: #fff;
 }
 .main{
     width: 100%;
@@ -239,7 +241,7 @@ p{
 }
 
 /* nút icon menu */
-.icon-menu{
+#icon-menu{
     background-image: url(../../assets/img/Sprites.64af8f61.svg);
     background-position: -843px -30px;
 }

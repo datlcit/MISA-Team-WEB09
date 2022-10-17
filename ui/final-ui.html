@@ -9,9 +9,9 @@
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <div class="wrapper">
+    <div id="wrapper" class="wrapper">
         <!-- SIDEBAR -->
-        <div class="sidebar">
+        <div id="sidebar" class="sidebar">
             <div class="icon-grid-and-logo row-jus-start">
                 <a href="">
                     <div class="m-icon-grid m-icon-24"></div>
@@ -147,12 +147,12 @@
                 </ul>
             </div>
         </div>
-        <div class="header-and-main">
+        <div id="header-and-main" class="header-and-main">
             <!-- HEADER -->
             <div class="header">
                 <div class="m-wrap-header-content">
                     <div class="row m-header-left">
-                        <div class="icon-menu m-icon-24 cs-pointer"></div>
+                        <div id="icon-menu" class="m-icon-24 cs-pointer"></div>
                         <div class="m-company-dropdown">
                             <div class="m-dropdown m-dropdown-list-company">
                                 <p>Công ty TNHH SẢN XUẤT - THƯƠNG MẠI - THƯƠNG MẠI QUI PHÚC</p>
@@ -186,7 +186,7 @@
                     <div class="title-table">
                         <h1>Nhân viên</h1>
                     </div>
-                    <button class="m-btn m-btn-bg-green">Thêm mới nhân viên</button>
+                    <button id="btn-add-employee" class="m-btn m-btn-bg-green">Thêm mới nhân viên</button>
                 </div>
                 <div class="toolbar-and-table">
                     <div class="toolbar-and-table-padding">
@@ -751,5 +751,135 @@
             </div>
         </div>
     </div>
+
+    <!-- Form thông tin nhân viên -->
+    <div id="form-add-employee" class="bg-overlay">
+        <div class="info-form">
+            <div class="info-form-padding">
+                <i class="icofont-question-circle cs-pointer"></i>
+                <i id="form-close" class="icofont-close-line cs-pointer"></i>
+                <div class="info-form-title">
+                    <p>Thông tin nhân viên</p>
+                </div>
+                <div class="customer-or-provider row-jus-center">
+                    <div class="is-customer row-jus-center">
+                        <input type="checkbox">
+                        <p>Là khách hàng</p>
+                    </div>
+                    <div class="is-provider row-jus-center">
+                        <input type="checkbox">
+                        <p>Là nhà cung cấp</p>
+                    </div>
+                </div>
+                <div class="personal-info">
+                    <div class="personal-info-left">
+                        <div class="row m-information m-input-id w-40">
+                            <label title="Mã nhân viên">Mã <span>*</span></label>
+                            <input class="m-input m-input-information" type="text" name="" id="">
+                        </div>
+                        <div class="row m-information m-input-fullname margin-left-8">
+                            <label title="Tên nhân viên">Tên <span>*</span></label>
+                            <input class="m-input m-input-information" type="text" name="" id="">
+                        </div>
+                        <div class="m-flex m-information m-input-unit w-100">
+                            <label title="Đơn vị phòng">Đơn vị <span>*</span></label>
+                            <div class="select-department">
+                                <div class="m-dropdown m-dropup-range-item row-jus-between">
+                                    <p>Phòng nhân sự</p>
+                                    <div class="iconfont-div"><i class="icofont-curved-down"></i></div>
+                                    <div class="wrap-up-down-option m-wrap-dropdown-option">
+                                        <div class="m-option"><p>Phòng tài chính</p></div>
+                                        <div class="m-option"><p>Phòng kế toán</p></div>
+                                        <div class="m-option"><p>Phòng kinh doanh</p></div>
+                                        <div class="m-option"><p>Phòng hành chính</p></div>
+                                        <div class="m-option"><p>Phòng IT</p></div>
+                                        <div class="m-option"><p>Phòng marketing</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-information m-input-duty w-100">
+                            <label title="Chức danh trong công ty">Chức danh</label>
+                            <input class="m-input m-input-information" type="text" name="" id="">
+                        </div>
+                    </div>
+                    <div class="personal-info-right">
+                        <div class="row m-information m-input-date m-input-birthday w-40">
+                            <label title="Ngày tháng năm sinh">Ngày sinh</label>
+                            <input class="m-input m-input-information" type="date" name="" id="">
+                        </div>
+                        <div class="row m-information m-radio-gender margin-left-8">
+                            <label title="Giới tính">Giới tính</label>
+                            <div class="row-jus-between m-input-information m-input-gender">
+                                <input type="radio" name="" id="">
+                                <p class="margin-left-8">Nam</p>
+                                <input class="margin-left-24" type="radio" name="" id="">
+                                <p class="margin-left-8">Nữ</p>
+                                <input class="margin-left-24" type="radio" name="" id="">
+                                <p class="margin-left-8">Khác</p>
+                            </div>
+                        </div>
+                        <div class="row m-information m-input-cmnd">
+                            <label title="Số chứng minh nhân dân">Số CMND</label>
+                            <input class="m-input m-input-information" type="text" name="" id="">
+                        </div>
+                        <div class="row m-information m-input-date-range w-40 margin-left-8">
+                            <label title="Ngày cấp chứng minh nhân dân">Ngày cấp</label>
+                            <input class="m-input m-input-information" type="date" name="" id="">
+                        </div>
+                        <div class="row m-information m-input-duty w-100">
+                            <label title="Nơi cấp chứng minh nhân dân">Nơi cấp</label>
+                            <input class="m-input m-input-information w-100" type="text" name="" id="">
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-and-bank-info">
+                    <div class="row m-information m-input-address w-100">
+                        <label title="Địa chỉ nhà riêng">Địa chỉ</label>
+                        <input class="m-input m-input-information" type="text" name="" id="">
+                    </div>
+                    <div class="row-jus-start contact-info w-100">
+                        <div class="row m-information m-input-mobile">
+                            <label title="Số điện thoại di động">ĐT di động</label>
+                            <input class="m-input m-input-information" type="text" name="" id="">
+                        </div>
+                        <div class="row m-information m-input-phone margin-left-8">
+                            <label title="Số điện thoại cố định">ĐT cố định</label>
+                            <input class="m-input m-input-information" type="text" name="" id="">
+                        </div>
+                        <div class="row m-information m-input-email margin-left-8">
+                            <label title="Email">Email</label>
+                            <input class="m-input m-input-information" type="text" name="" id="">
+                        </div>
+                    </div>
+                    <div class="bank-info-wrapper">
+                        <div class="row bank-info w-100">
+                            <div class="row m-information m-input-bankId">
+                                <label title="Số tài khoản ngân hàng">Tài khoản ngân hàng</label>
+                                <input class="m-input m-input-information" type="text" name="" id="">
+                            </div>
+                            <div class="row m-information m-input-bankName margin-left-8">
+                                <label title="Tên ngân hàng">Tên ngân hàng</label>
+                                <input class="m-input m-input-information" type="text" name="" id="">
+                            </div>
+                            <div class="row m-information m-input-bankBranch margin-left-8">
+                                <label title="Chi nhánh ngân hàng">Chi nhánh</label>
+                                <input class="m-input m-input-information" type="text" name="" id="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-jus-between info-btn-list">
+                        <button id="form-close-2" class="m-btn m-btn-bg-white">Hủy</button>
+                        <div class="row get-info-btn">
+                            <button class="m-btn m-btn-bg-white get-btn">Cất</button>
+                            <button class="m-btn m-btn-bg-green">Cất và Thêm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/final-ui.js"></script>
 </body>
 </html>
