@@ -26,10 +26,9 @@ formClose2.onclick = function(){
 //     editList.style.display = "block";
 // }
 
-var showHideMenu = document.getElementById("icon-menu");
-var sideBar = document.getElementById("sidebar");
-var wrapper = document.getElementById("wrapper");
-var headerAndMain = document.getElementById("header-and-main");
+let showHideMenu = document.getElementById("icon-menu");
+let wrapper = document.getElementById("wrapper");
+let headerAndMain = document.getElementById("header-and-main");
 showHideMenu.onclick = function(){
     // if(sideBar.style.width == '200px'){
     //     headerAndMain.style.width = "calc(100% - 200px)";
@@ -48,3 +47,24 @@ showHideMenu.onclick = function(){
     }
     
 }
+
+let mDropdownListCompany = document.querySelector(".m-dropdown-list-company");
+let mWrapDropdownOption =  document.querySelector(".m-wrap-dropdown-option");
+mDropdownListCompany.onclick = function(){
+    if(mWrapDropdownOption.style.display == "none"){
+        mWrapDropdownOption.style.display = "block";
+    } else {
+        mWrapDropdownOption.style.display = "none"
+    }
+}
+
+let mDropUpRangeItem = document.querySelector(".m-dropup-range-item");
+let mWrapDropUpOption = document.querySelector(".m-wrap-dropup-option");
+mDropUpRangeItem.onclick = function(){
+    if(mWrapDropUpOption.style.display == "none"){
+        mWrapDropUpOption.style.display = "block";
+    } else {
+        mWrapDropUpOption.style.display = "none"
+    }
+}
+
