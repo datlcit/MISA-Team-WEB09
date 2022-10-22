@@ -4,6 +4,11 @@ label{
     font-weight: 700;
     font-weight: 14px;
 }
+
+label span{
+    color: #E61D1D;
+}
+
 .info-form{
     width: 900px;
     background-color: #fff;
@@ -49,15 +54,6 @@ label{
     height: 18px;
 }
 
-.margin-left-8{
-    margin-left: 8px;
-}
-.margin-left-24{
-    margin-left: 24px;
-}
-.margin-left-32{
-    margin-left: 32px;
-}
 .personal-info{
     display: flex;
     width: 100%;
@@ -74,14 +70,9 @@ label{
 .personal-info-right{
     padding-left: 12px;
 }
-.w-40{
-    width: 40%;
-}
-.w-100{
-    width: 100%;
-}
+
 .m-input-fullname, .m-input-cmnd, .m-input-gender{
-    flex: 1;
+    width: calc(60% - 8px);
 }
 .m-input-date-range{
     width: 170px;
@@ -123,7 +114,7 @@ label{
     justify-content: center;
     align-items: center;
     display: none;
-    z-index: 2;
+    z-index: 100;
 }
 
 /* Khung cảnh báo */

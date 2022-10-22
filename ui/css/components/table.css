@@ -28,6 +28,10 @@ tr:hover td{
     background-color: #F8F8F8;
 }
 
+.tbody-scroll{
+    overflow-y: auto;
+}
+
 /* Căn lề hàng tiêu đề và nội dung tiêu đè*/
 .title-column{
     padding: 0 16px;
@@ -50,9 +54,27 @@ tr:hover td{
 /* Tạo thanh cuộn trái phải và đo chiều cao thích hợp cho bảng */
 .table-area{
     margin-top: 12px;
-    overflow-x: auto;
     overflow-y: auto;
+    overflow-x: auto;
     height: calc(100% - 104px);
+}
+
+/* Thay đổi kích cỡ scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+ 
+.table-area::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+    /* Lùi scrollbar */
+    margin-top: 48px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
 
 /* Thiết lập viền các ô tránh viền ngoài */
@@ -83,6 +105,7 @@ tr:hover td{
 .th-edit-title{
     position: sticky;
     right: 0;
+    z-index: 100;
 }
 
 .td-edit-sticky{
@@ -139,7 +162,7 @@ tr:hover td{
     left: -100px;
 
     /* Ân bớt ds chức năng */
-    display: none;
+    /* display: none; */
 }
 
 .edit-list .m-option:hover{
@@ -158,7 +181,7 @@ tr:hover td{
     min-width: 150px;
 }
 .col-name{
-    min-width: 238px;
+    min-width: 250px;
 }
 .col-gender{
     min-width: 128px;
@@ -170,10 +193,10 @@ tr:hover td{
     min-width: 156px;
 }
 .col-duty{
-    min-width: 151px;
+    min-width: 300px;
 }
 .col-unit{
-    min-width: 134px;
+    min-width: 250px;
 }
 .col-num-account{
     min-width: 182px;

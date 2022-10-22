@@ -11,6 +11,7 @@
     font-size: 14px;
     color: #9E9E9E;
     font-style: italic;
+    font-style: normal;
 }
 
 .m-input:hover{
@@ -39,17 +40,15 @@
 /* Thông tin nhân viên */
 .m-information{
     flex-direction: column;
+    position: relative;
 }
 
-.m-information span{
-    color: red;
-}
 label{
     color:#1F1F1F;
     font-size: 14px;
     font-weight: 500;
 }
-.m-input-information, .select-department{
+.m-input-information{
     margin-top: 8px;
     margin-bottom: 24px;
 }
@@ -62,6 +61,7 @@ input[type="radio"] {
 }
 
 /* Checkbox trong bảng TABLE */
+
 input[type="checkbox"] {
     width: 24px;
     height: 24px;
@@ -76,10 +76,33 @@ input[type="checkbox"] {
     background-color: #fff;
 }
 
+thead .text-box-flex{
+    background-color: #eeeeee;
+}
+
 /*---------------------------------
 
 /* ERROR INPUT */
 
-.err-input input{
+.err-input{
     border-color: #E60000;
+}
+.err-text{
+    margin-left: 5px;
+    /* margin-bottom: 24px; */
+    font-size: 12px;
+    color: #E61D1D;
+    position: absolute;
+    top: 71px;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    display: none;
+}
+
+/* input có một class là m-input và có attribute là required và khi có class là input-error thì áp dụng cho phần tử có class err-text ngay phía sau*/
+input.m-input[required].err-input + .err-text{
+    display: block;
 }

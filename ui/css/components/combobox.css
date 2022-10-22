@@ -1,0 +1,18 @@
+.combobox-unit{
+    position: relative;
+}
+
+.combobox-unit__btn{
+    position: absolute;
+    top: 9px;
+    right: 1px;
+    background-color: #fff;
+}
+
+.m-input-unit{
+    flex: 1;
+}
+
+.combobox-unit_items{
+    display: none;
+}

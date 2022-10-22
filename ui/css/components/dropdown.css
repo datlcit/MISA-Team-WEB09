@@ -46,7 +46,7 @@
 	left: 0;
 
 	/* ẨN CHO ĐỠ VƯỚNG ------------------------*/
-	display: none;
+	/* display: none; */
 }
 
 /* ---------------------------------------------------------------------- */
@@ -79,7 +79,7 @@
 	padding: 8px;
 	border: 1px solid #000;
 
-	/* display: none; */
+	display: none;
 }
 
 /* Thiết lập chiều cao và rộng và đặt vị trí mũi tên theo STL  */
@@ -106,7 +106,7 @@
 	bottom: calc(100% + 1px);
 	padding: 8px;
 
-    /* display: none; */
+    display: none;
 }
 .m-wrap-dropup-option{
     border: 1px solid #306F24;
