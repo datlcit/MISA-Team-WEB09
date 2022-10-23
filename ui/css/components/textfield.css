@@ -102,6 +102,7 @@ thead .text-box-flex{
     display: none;
 }
 
+/* Xét điều kiện để form hiển thị báo lỗi đúng input */
 /* input có một class là m-input và có attribute là required và khi có class là input-error thì áp dụng cho phần tử có class err-text ngay phía sau*/
 input.m-input[required].err-input + .err-text{
     display: block;

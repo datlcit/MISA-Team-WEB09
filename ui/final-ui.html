@@ -198,7 +198,7 @@
                             <div class="m-icon-refresh m-icon-24 cs-pointer" title="Tải lại dữ liệu"></div>
                         </div>
                         <div class="table-area">
-                            <table cellspacing="0">
+                            <table id="tblEmployee" cellspacing="0" api="https://amis.manhnv.net/api/v1/Employees">
                                 <thead>
                                     <tr class="table-row table-row-titles">
                                         <th class="text-box-flex col-textbox">
@@ -208,7 +208,7 @@
                                         <th class="text-left title-column col-name"><p>Tên nhân viên</p></th>
                                         <th class="text-left title-column col-gender"><p>Giới tính</p></th>
                                         <th class="title-date title-column col-date-of-birth"><p>Ngày sinh</p></th>
-                                        <th class="text-left title-column col-cmnd" title="Số chứng minh nhân dân"><p>Số CMND</p></th>
+                                        <th class="text-left title-column col-identity-number" title="Số chứng minh nhân dân"><p>Số CMND</p></th>
                                         <th class="text-left title-column col-duty"><p>Chức danh</p></th>
                                         <th class="text-left title-column col-unit"><p>Tên đơn vị</p></th>
                                         <th class="text-left title-column col-num-account"><p>Số tài khoản</p></th>
@@ -217,400 +217,81 @@
                                         <th class="title-column table-edit th-edit-title col-edit"><p>Chức năng</p></th>
                                     </tr>
                                 </thead>
-                                
                                 <tbody>
-                                    <tr class="table-row">
-                                        <td class="text-box-flex col-textbox">
-                                            <input class="check-employee" type="checkbox">
-                                        </td>
-                                        <td class="table-data col-id">MF1435</td>
-                                        <td class="table-data col-name">Lý Chính Đạt</td>
-                                        <td class="table-data col-gender">Nam</td>
-                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
-                                        <td class="table-data col-cmnd">0123456789</td>
-                                        <td class="table-data col-duty">Fresher Web</td>
-                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
-                                        <td class="table-data col-num-account">0123456789</td>
-                                        <td class="table-data col-bank">ACB</td>
-                                        <td class="table-data col-bank-branch">Duy Tân</td>
-                                        <td class="table-data table-edit td-edit-sticky col-edit">
-                                            <div class="cell-edit">
-                                                <p class="edit-text">Sửa</p>
-                                                <div class="wrap-btn-edit">
-                                                    <div class="btn-edit-function"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="table-row">
-                                        <td class="text-box-flex col-textbox">
-                                            <input class="check-employee" type="checkbox">
-                                        </td>
-                                        <td class="table-data col-id">MF1435</td>
-                                        <td class="table-data col-name">Lý Chính Đạt</td>
-                                        <td class="table-data col-gender">Nam</td>
-                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
-                                        <td class="table-data col-cmnd">0123456789</td>
-                                        <td class="table-data col-duty">Fresher Web</td>
-                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
-                                        <td class="table-data col-num-account">0123456789</td>
-                                        <td class="table-data col-bank">ACB</td>
-                                        <td class="table-data col-bank-branch">Duy Tân</td>
-                                        <td class="table-data table-edit td-edit-sticky col-edit">
-                                            <div class="cell-edit">
-                                                <p class="edit-text">Sửa</p>
-                                                <div class="wrap-btn-edit">
-                                                    <div class="btn-edit-function"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="table-row">
-                                        <td class="text-box-flex col-textbox">
-                                            <input class="check-employee" type="checkbox">
-                                        </td>
-                                        <td class="table-data col-id">MF1435</td>
-                                        <td class="table-data col-name">Lý Chính Đạt</td>
-                                        <td class="table-data col-gender">Nam</td>
-                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
-                                        <td class="table-data col-cmnd">0123456789</td>
-                                        <td class="table-data col-duty">Fresher Web</td>
-                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
-                                        <td class="table-data col-num-account">0123456789</td>
-                                        <td class="table-data col-bank">ACB</td>
-                                        <td class="table-data col-bank-branch">Duy Tân</td>
-                                        <td class="table-data table-edit td-edit-sticky col-edit">
-                                            <div class="cell-edit">
-                                                <p class="edit-text">Sửa</p>
-                                                <div class="wrap-btn-edit">
-                                                    <div class="btn-edit-function"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="table-row">
-                                        <td class="text-box-flex col-textbox">
-                                            <input class="check-employee" type="checkbox">
-                                        </td>
-                                        <td class="table-data col-id">MF1435</td>
-                                        <td class="table-data col-name">Lý Chính Đạt</td>
-                                        <td class="table-data col-gender">Nam</td>
-                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
-                                        <td class="table-data col-cmnd">0123456789</td>
-                                        <td class="table-data col-duty">Fresher Web</td>
-                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
-                                        <td class="table-data col-num-account">0123456789</td>
-                                        <td class="table-data col-bank">ACB</td>
-                                        <td class="table-data col-bank-branch">Duy Tân</td>
-                                        <td class="table-data table-edit td-edit-sticky col-edit">
-                                            <div class="cell-edit">
-                                                <p class="edit-text">Sửa</p>
-                                                <div class="wrap-btn-edit">
-                                                    <div class="btn-edit-function"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="table-row">
-                                        <td class="text-box-flex col-textbox">
-                                            <input class="check-employee" type="checkbox">
-                                        </td>
-                                        <td class="table-data col-id">MF1435</td>
-                                        <td class="table-data col-name">Lý Chính Đạt</td>
-                                        <td class="table-data col-gender">Nam</td>
-                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
-                                        <td class="table-data col-cmnd">0123456789</td>
-                                        <td class="table-data col-duty">Fresher Web</td>
-                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
-                                        <td class="table-data col-num-account">0123456789</td>
-                                        <td class="table-data col-bank">ACB</td>
-                                        <td class="table-data col-bank-branch">Duy Tân</td>
-                                        <td class="table-data table-edit td-edit-sticky col-edit">
-                                            <div class="cell-edit">
-                                                <p class="edit-text">Sửa</p>
-                                                <div class="wrap-btn-edit">
-                                                    <div class="btn-edit-function"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="table-row">
-                                        <td class="text-box-flex col-textbox">
-                                            <input class="check-employee" type="checkbox">
-                                        </td>
-                                        <td class="table-data col-id">MF1435</td>
-                                        <td class="table-data col-name">Lý Chính Đạt</td>
-                                        <td class="table-data col-gender">Nam</td>
-                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
-                                        <td class="table-data col-cmnd">0123456789</td>
-                                        <td class="table-data col-duty">Fresher Web</td>
-                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
-                                        <td class="table-data col-num-account">0123456789</td>
-                                        <td class="table-data col-bank">ACB</td>
-                                        <td class="table-data col-bank-branch">Duy Tân</td>
-                                        <td class="table-data table-edit td-edit-sticky col-edit">
-                                            <div class="cell-edit">
-                                                <p class="edit-text">Sửa</p>
-                                                <div class="wrap-btn-edit">
-                                                    <div class="btn-edit-function"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="table-row">
-                                        <td class="text-box-flex col-textbox">
-                                            <input class="check-employee" type="checkbox">
-                                        </td>
-                                        <td class="table-data col-id">MF1435</td>
-                                        <td class="table-data col-name">Lý Chính Đạt</td>
-                                        <td class="table-data col-gender">Nam</td>
-                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
-                                        <td class="table-data col-cmnd">0123456789</td>
-                                        <td class="table-data col-duty">Fresher Web</td>
-                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
-                                        <td class="table-data col-num-account">0123456789</td>
-                                        <td class="table-data col-bank">ACB</td>
-                                        <td class="table-data col-bank-branch">Duy Tân</td>
-                                        <td class="table-data table-edit td-edit-sticky col-edit">
-                                            <div class="cell-edit">
-                                                <p class="edit-text">Sửa</p>
-                                                <div class="wrap-btn-edit">
-                                                    <div class="btn-edit-function"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="table-row">
-                                        <td class="text-box-flex col-textbox">
-                                            <input class="check-employee" type="checkbox">
-                                        </td>
-                                        <td class="table-data col-id">MF1435</td>
-                                        <td class="table-data col-name">Lý Chính Đạt</td>
-                                        <td class="table-data col-gender">Nam</td>
-                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
-                                        <td class="table-data col-cmnd">0123456789</td>
-                                        <td class="table-data col-duty">Fresher Web</td>
-                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
-                                        <td class="table-data col-num-account">0123456789</td>
-                                        <td class="table-data col-bank">ACB</td>
-                                        <td class="table-data col-bank-branch">Duy Tân</td>
-                                        <td class="table-data table-edit td-edit-sticky col-edit">
-                                            <div class="cell-edit">
-                                                <p class="edit-text">Sửa</p>
-                                                <div class="wrap-btn-edit">
-                                                    <div class="btn-edit-function"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="table-row">
-                                        <td class="text-box-flex col-textbox">
-                                            <input class="check-employee" type="checkbox">
-                                        </td>
-                                        <td class="table-data col-id">MF1435</td>
-                                        <td class="table-data col-name">Lý Chính Đạt</td>
-                                        <td class="table-data col-gender">Nam</td>
-                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
-                                        <td class="table-data col-cmnd">0123456789</td>
-                                        <td class="table-data col-duty">Fresher Web</td>
-                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
-                                        <td class="table-data col-num-account">0123456789</td>
-                                        <td class="table-data col-bank">ACB</td>
-                                        <td class="table-data col-bank-branch">Duy Tân</td>
-                                        <td class="table-data table-edit td-edit-sticky col-edit">
-                                            <div class="cell-edit">
-                                                <p class="edit-text">Sửa</p>
-                                                <div class="wrap-btn-edit">
-                                                    <div class="btn-edit-function"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="table-row">
-                                        <td class="text-box-flex col-textbox">
-                                            <input class="check-employee" type="checkbox">
-                                        </td>
-                                        <td class="table-data col-id">MF1435</td>
-                                        <td class="table-data col-name">Lý Chính Đạt</td>
-                                        <td class="table-data col-gender">Nam</td>
-                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
-                                        <td class="table-data col-cmnd">0123456789</td>
-                                        <td class="table-data col-duty">Fresher Web</td>
-                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
-                                        <td class="table-data col-num-account">0123456789</td>
-                                        <td class="table-data col-bank">ACB</td>
-                                        <td class="table-data col-bank-branch">Duy Tân</td>
-                                        <td class="table-data table-edit td-edit-sticky col-edit">
-                                            <div class="cell-edit">
-                                                <p class="edit-text">Sửa</p>
-                                                <div class="wrap-btn-edit">
-                                                    <div class="btn-edit-function"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="table-row">
-                                        <td class="text-box-flex col-textbox">
-                                            <input class="check-employee" type="checkbox">
-                                        </td>
-                                        <td class="table-data col-id">MF1435</td>
-                                        <td class="table-data col-name">Lý Chính Đạt</td>
-                                        <td class="table-data col-gender">Nam</td>
-                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
-                                        <td class="table-data col-cmnd">0123456789</td>
-                                        <td class="table-data col-duty">Fresher Web</td>
-                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
-                                        <td class="table-data col-num-account">0123456789</td>
-                                        <td class="table-data col-bank">ACB</td>
-                                        <td class="table-data col-bank-branch">Duy Tân</td>
-                                        <td class="table-data table-edit td-edit-sticky col-edit">
-                                            <div class="cell-edit">
-                                                <p class="edit-text">Sửa</p>
-                                                <div class="wrap-btn-edit">
-                                                    <div class="btn-edit-function"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="table-row">
-                                        <td class="text-box-flex col-textbox">
-                                            <input class="check-employee" type="checkbox">
-                                        </td>
-                                        <td class="table-data col-id">MF1435</td>
-                                        <td class="table-data col-name">Lý Chính Đạt</td>
-                                        <td class="table-data col-gender">Nam</td>
-                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
-                                        <td class="table-data col-cmnd">0123456789</td>
-                                        <td class="table-data col-duty">Fresher Web</td>
-                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
-                                        <td class="table-data col-num-account">0123456789</td>
-                                        <td class="table-data col-bank">ACB</td>
-                                        <td class="table-data col-bank-branch">Duy Tân</td>
-                                        <td class="table-data table-edit td-edit-sticky col-edit">
-                                            <div class="cell-edit">
-                                                <p class="edit-text">Sửa</p>
-                                                <div class="wrap-btn-edit">
-                                                    <div class="btn-edit-function"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="table-row">
-                                        <td class="text-box-flex col-textbox">
-                                            <input class="check-employee" type="checkbox">
-                                        </td>
-                                        <td class="table-data col-id">MF1435</td>
-                                        <td class="table-data col-name">Lý Chính Đạt</td>
-                                        <td class="table-data col-gender">Nam</td>
-                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
-                                        <td class="table-data col-cmnd">0123456789</td>
-                                        <td class="table-data col-duty">Fresher Web</td>
-                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
-                                        <td class="table-data col-num-account">0123456789</td>
-                                        <td class="table-data col-bank">ACB</td>
-                                        <td class="table-data col-bank-branch">Duy Tân</td>
-                                        <td class="table-data table-edit td-edit-sticky col-edit">
-                                            <div class="cell-edit">
-                                                <p class="edit-text">Sửa</p>
-                                                <div class="wrap-btn-edit">
-                                                    <div class="btn-edit-function"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="table-row">
-                                        <td class="text-box-flex col-textbox">
-                                            <input class="check-employee" type="checkbox">
-                                        </td>
-                                        <td class="table-data col-id">MF1435</td>
-                                        <td class="table-data col-name">Lý Chính Đạt</td>
-                                        <td class="table-data col-gender">Nam</td>
-                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
-                                        <td class="table-data col-cmnd">0123456789</td>
-                                        <td class="table-data col-duty">Fresher Web</td>
-                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
-                                        <td class="table-data col-num-account">0123456789</td>
-                                        <td class="table-data col-bank">ACB</td>
-                                        <td class="table-data col-bank-branch">Duy Tân</td>
-                                        <td class="table-data table-edit td-edit-sticky col-edit">
-                                            <div class="cell-edit">
-                                                <p class="edit-text">Sửa</p>
-                                                <div class="wrap-btn-edit">
-                                                    <div class="btn-edit-function"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="table-row">
-                                        <td class="text-box-flex col-textbox">
-                                            <input class="check-employee" type="checkbox">
-                                        </td>
-                                        <td class="table-data col-id">MF1435</td>
-                                        <td class="table-data col-name">Lý Chính Đạt</td>
-                                        <td class="table-data col-gender">Nam</td>
-                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
-                                        <td class="table-data col-cmnd">0123456789</td>
-                                        <td class="table-data col-duty">Fresher Web</td>
-                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
-                                        <td class="table-data col-num-account">0123456789</td>
-                                        <td class="table-data col-bank">ACB</td>
-                                        <td class="table-data col-bank-branch">Duy Tân</td>
-                                        <td class="table-data table-edit td-edit-sticky col-edit">
-                                            <div class="cell-edit">
-                                                <p class="edit-text">Sửa</p>
-                                                <div class="wrap-btn-edit">
-                                                    <div class="btn-edit-function"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="table-row">
-                                        <td class="text-box-flex col-textbox">
-                                            <input class="check-employee" type="checkbox">
-                                        </td>
-                                        <td class="table-data col-id">MF1435</td>
-                                        <td class="table-data col-name">Lý Chính Đạt</td>
-                                        <td class="table-data col-gender">Nam</td>
-                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
-                                        <td class="table-data col-cmnd">0123456789</td>
-                                        <td class="table-data col-duty">Fresher Web</td>
-                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
-                                        <td class="table-data col-num-account">0123456789</td>
-                                        <td class="table-data col-bank">ACB</td>
-                                        <td class="table-data col-bank-branch">Duy Tân</td>
-                                        <td class="table-data table-edit td-edit-sticky col-edit">
-                                            <div class="cell-edit">
-                                                <p class="edit-text">Sửa</p>
-                                                <div class="wrap-btn-edit">
-                                                    <div class="btn-edit-function"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="table-row">
-                                        <td class="text-box-flex col-textbox">
-                                            <input class="check-employee" type="checkbox">
-                                        </td>
-                                        <td class="table-data col-id">MF1435</td>
-                                        <td class="table-data col-name">Lý Chính Đạt</td>
-                                        <td class="table-data col-gender">Nam</td>
-                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
-                                        <td class="table-data col-cmnd">0123456789</td>
-                                        <td class="table-data col-duty">Fresher Web</td>
-                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
-                                        <td class="table-data col-num-account">0123456789</td>
-                                        <td class="table-data col-bank">ACB</td>
-                                        <td class="table-data col-bank-branch">Duy Tân</td>
-                                        <td class="table-data table-edit td-edit-sticky col-edit">
-                                            <div class="cell-edit">
-                                                <p class="edit-text">Sửa</p>
-                                                <div class="wrap-btn-edit">
-                                                    <div class="btn-edit-function"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    <!--Dữ liệu trên api sẽ được chèn vào đây-->
                                 </tbody>
+                                
+                                <!-- <tbody>
+                                    <tr class="table-row">
+                                        <td class="text-box-flex col-textbox">
+                                            <input class="check-employee" type="checkbox">
+                                        </td>
+                                        <td class="table-data col-id">MF1435</td>
+                                        <td class="table-data col-name">Lý Chính Đạt</td>
+                                        <td class="table-data col-gender">Nam</td>
+                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
+                                        <td class="table-data col-identity-number">0123456789</td>
+                                        <td class="table-data col-duty">Fresher Web</td>
+                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
+                                        <td class="table-data col-num-account">0123456789</td>
+                                        <td class="table-data col-bank">ACB</td>
+                                        <td class="table-data col-bank-branch">Duy Tân</td>
+                                        <td class="table-data table-edit td-edit-sticky col-edit">
+                                            <div class="cell-edit">
+                                                <p class="edit-text">Sửa</p>
+                                                <div class="wrap-btn-edit">
+                                                    <div class="btn-edit-function"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="text-box-flex col-textbox">
+                                            <input class="check-employee" type="checkbox">
+                                        </td>
+                                        <td class="table-data col-id">MF1435</td>
+                                        <td class="table-data col-name">Lý Chính Đạt</td>
+                                        <td class="table-data col-gender">Nam</td>
+                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
+                                        <td class="table-data col-identity-number">0123456789</td>
+                                        <td class="table-data col-duty">Fresher Web</td>
+                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
+                                        <td class="table-data col-num-account">0123456789</td>
+                                        <td class="table-data col-bank">ACB</td>
+                                        <td class="table-data col-bank-branch">Duy Tân</td>
+                                        <td class="table-data table-edit td-edit-sticky col-edit">
+                                            <div class="cell-edit">
+                                                <p class="edit-text">Sửa</p>
+                                                <div class="wrap-btn-edit">
+                                                    <div class="btn-edit-function"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td class="text-box-flex col-textbox">
+                                            <input class="check-employee" type="checkbox">
+                                        </td>
+                                        <td class="table-data col-id">MF1435</td>
+                                        <td class="table-data col-name">Lý Chính Đạt</td>
+                                        <td class="table-data col-gender">Nam</td>
+                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
+                                        <td class="table-data col-identity-number">0123456789</td>
+                                        <td class="table-data col-duty">Fresher Web</td>
+                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
+                                        <td class="table-data col-num-account">0123456789</td>
+                                        <td class="table-data col-bank">ACB</td>
+                                        <td class="table-data col-bank-branch">Duy Tân</td>
+                                        <td class="table-data table-edit td-edit-sticky col-edit">
+                                            <div class="cell-edit">
+                                                <p class="edit-text">Sửa</p>
+                                                <div class="wrap-btn-edit">
+                                                    <div class="btn-edit-function"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody> -->
                             </table>
                             <!--Dropdown menu Sửa-->
                             <!-- <div class="wrap-up-down-option edit-list">
@@ -682,11 +363,11 @@
                 </div>
                 <div class="customer-or-provider row-jus-center">
                     <div class="is-customer row-jus-center">
-                        <input checked type="checkbox" value="customer" name="isCustomerOrProvider">
+                        <input id="cbCustomer" checked type="checkbox" value="customer" name="isCustomerOrProvider">
                         <p>Là khách hàng</p>
                     </div>
                     <div class="is-provider row-jus-center">
-                        <input type="checkbox" value="provider" name="isCustomerOrProvider">
+                        <input id="cbProvider" type="checkbox" value="provider" name="isCustomerOrProvider">
                         <p>Là nhà cung cấp</p>
                     </div>
                 </div>
@@ -719,71 +400,71 @@
                         </div>
                         <div class="row m-information m-input-duty w-100">
                             <label>Chức danh</label>
-                            <input tabindex="4" class="m-input m-input-information" type="text" name="" id="" placeholder="VD: Lập trình viên">
+                            <input tabindex="4" class="m-input m-input-information" type="text" name="" id="txtDuty" placeholder="VD: Lập trình viên">
                         </div>
                     </div>
                     <div class="personal-info-right">
                         <div class="row m-information m-input-date m-input-birthday w-40">
                             <label>Ngày sinh</label>
-                            <input tabindex="5" class="m-input m-input-information" type="date" name="" id="">
+                            <input tabindex="5" class="m-input m-input-information" type="date" name="" id="dateOfBirth">
                         </div>
                         <div class="row m-information m-radio-gender margin-left-8">
                             <label>Giới tính</label>
                             <div class="row-jus-between m-input-information m-input-gender">
-                                <input checked tabindex="6" type="radio" name="gender" id="">
+                                <input checked tabindex="6" type="radio" name="gender" id="rdFemale">
                                 <label class="margin-left-8">Nam</label>
-                                <input tabindex="7" class="margin-left-24" type="radio" name="gender" id="">
+                                <input tabindex="7" class="margin-left-24" type="radio" name="gender" id="rdMale">
                                 <label class="margin-left-8">Nữ</label>
-                                <input tabindex="8" class="margin-left-24" type="radio" name="gender" id="">
+                                <input tabindex="8" class="margin-left-24" type="radio" name="gender" id="rdOther">
                                 <label class="margin-left-8">Khác</label>
                             </div>
                         </div>
-                        <div class="row m-information m-input-cmnd">
+                        <div class="row m-information m-input-identity-number">
                             <label title="Số chứng minh nhân dân">Số CMND</label>
-                            <input tabindex="9" class="m-input m-input-information" type="text" name="" id="" placeholder="VD: 0123456789">
+                            <input tabindex="9" class="m-input m-input-information" type="text" name="" id="txtIdentityNumber" placeholder="VD: 0123456789">
                         </div>
                         <div class="row m-information m-input-date-range w-40 margin-left-8">
                             <label>Ngày cấp</label>
-                            <input tabindex="10" class="m-input m-input-information" type="date" name="" id="">
+                            <input tabindex="10" class="m-input m-input-information" type="date" name="" id="dateRange">
                         </div>
-                        <div class="row m-information m-input-duty w-100">
+                        <div class="row m-information m-input-providing-place w-100">
                             <label>Nơi cấp</label>
-                            <input tabindex="11" class="m-input m-input-information w-100" type="text" name="" id="" placeholder="VD: Công an thành phố Hà Nội">
+                            <input tabindex="11" class="m-input m-input-information w-100" type="text" name="" id="txtProvidingPlace" placeholder="VD: Công an thành phố Hà Nội">
                         </div>
                     </div>
                 </div>
                 <div class="contact-and-bank-info">
                     <div class="row m-information m-input-address w-100">
                         <label>Địa chỉ</label>
-                        <input tabindex="12" class="m-input m-input-information" type="text" name="" id="" placeholder="Số nhà, ngõ, tên đường, phường/xã, quận/huyện, tỉnh/thành phố">
+                        <input tabindex="12" class="m-input m-input-information" type="text" name="" id="txtAddress" placeholder="Số nhà, ngõ, tên đường, phường/xã, quận/huyện, tỉnh/thành phố">
                     </div>
                     <div class="row-jus-start contact-info w-100">
                         <div class="row m-information m-input-mobile">
                             <label title="Số điện thoại di động">ĐT di động</label>
-                            <input tabindex="13" class="m-input m-input-information" type="text" name="" id="" placeholder="VD: 0987654321">
+                            <input tabindex="13" class="m-input m-input-information" type="text" name="" id="txtMobile" placeholder="VD: 0987654321">
                         </div>
                         <div class="row m-information m-input-phone margin-left-8">
                             <label title="Số điện thoại cố định">ĐT cố định</label>
-                            <input tabindex="14" class="m-input m-input-information" type="text" name="" id="" placeholder="VD: 0123456789">
+                            <input tabindex="14" class="m-input m-input-information" type="text" name="" id="txtPhone" placeholder="VD: 0123456789">
                         </div>
                         <div class="row m-information m-input-email margin-left-8">
                             <label>Email</label>
-                            <input tabindex="15" class="m-input m-input-information" type="text" name="" id="" placeholder="VD: nguyenvana@gmail.com">
+                            <input tabindex="15" class="m-input m-input-information" type="text" name="" id="txtEmail" placeholder="VD: nguyenvana@gmail.com">
                         </div>
                     </div>
                     <div class="bank-info-wrapper">
                         <div class="row bank-info w-100">
                             <div class="row m-information m-input-bankId">
                                 <label>Tài khoản ngân hàng</label>
-                                <input tabindex="16" class="m-input m-input-information" type="text" name="" id="" placeholder="VD: 0987654321">
+                                <input tabindex="16" class="m-input m-input-information" type="text" name="" id="txtBankId" placeholder="VD: 0987654321">
                             </div>
                             <div class="row m-information m-input-bankName margin-left-8">
                                 <label>Tên ngân hàng</label>
-                                <input tabindex="17" class="m-input m-input-information" type="text" name="" id="" placeholder="VD: ACB Bank">
+                                <input tabindex="17" class="m-input m-input-information" type="text" name="" id="txtBankName" placeholder="VD: ACB Bank">
                             </div>
                             <div class="row m-information m-input-bankBranch margin-left-8">
                                 <label>Chi nhánh</label>
-                                <input tabindex="18" class="m-input m-input-information" type="text" name="" id="" placeholder="VD: Duy Tân">
+                                <input tabindex="18" class="m-input m-input-information" type="text" name="" id="txtBankBranch" placeholder="VD: Duy Tân">
                             </div>
                         </div>
                     </div>

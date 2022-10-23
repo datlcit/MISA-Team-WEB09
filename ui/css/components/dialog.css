@@ -71,7 +71,7 @@ label span{
     padding-left: 12px;
 }
 
-.m-input-fullname, .m-input-cmnd, .m-input-gender{
+.m-input-fullname, .m-input-identity-number, .m-input-gender{
     width: calc(60% - 8px);
 }
 .m-input-date-range{

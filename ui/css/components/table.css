@@ -94,11 +94,9 @@ tr:hover td{
 }
 
 /* Căn giữa cho cột dữ liệu ngày tháng */
-.title-date p, .table-data-date p{
+.title-date p, .table-data-date{
     text-align: center;
-    text-transform: uppercase;
-    font-size: 14px;
-    padding: 0;
+    padding: 0 16px;
 }
 
 /* Giữ nguyên cột Chức năng luôn hiện khi scroll ngang */
@@ -189,8 +187,8 @@ tr:hover td{
 .col-date-of-birth{
     min-width: 166px;
 }
-.col-cmnd{
-    min-width: 156px;
+.col-identity-number{
+    min-width: 180px;
 }
 .col-duty{
     min-width: 300px;
