@@ -45,22 +45,28 @@ function initEvents(){
         // document.getElementById("cancelForm").addEventListener("click", closeFormEmployee);
         $('#cancelForm').click(closeFormEmployee);
 
-        // Nút thu mở sidebar
+        // Nút thu gọn sidebar
         // document.getElementById("iconMenu").addEventListener("click", showHideMenu);
-        $('#iconMenu').click(showHideMenu);
+        $('#iconMenu').click(hideMenu);
+
+        // Nút mở rộng sidebar
+        // document.getElementById("iconMenu").addEventListener("click", showHideMenu);
+        $('#iconGrid').click(showMenu);
         
         // Ẩn hiện dropdown trên header
-        // document.querySelector(".m-dropdown-list-company").addEventListener("click", showHideDropdown(document.querySelector(".m-wrap-dropdown-option")));
-        // document.querySelector(".m-dropdown-list-company").addEventListener("click", showHideHeaderDropdown);
-        $('.m-dropdown-list-company').click(showHideHeaderDropdown);
+        $('#mDropdowmListCompany').click(function(){
+            showHideDropdown($('#mDropdownHeader'));
+        });
 
         // Ẩn hiện dropup dưới chân trang
-        // document.querySelector(".m-dropup-range-item").addEventListener("click", showHideFooterDropup);
-        $('.m-dropup-range-item').click(showHideFooterDropup);
+        $('#mDropupRangeItem').click(function(){
+            showHideDropdown($('#mWrapDropupPagination'));
+        });
 
         // Ẩn hiện dropdown trong form Thông tin nhân viên
-        // document.querySelector("#comboboxUnitBtn").addEventListener("click", showHideFormDropdown);
-        $('#comboboxUnitBtn').click(showHideFormDropdown);
+        $('#comboboxUnitBtn').click(function(){
+            showHideDropdown($('#comboboxUnitItems'));
+        });
 
         // Nút Cất
         // document.getElementById("btnSave").addEventListener("click", validateData);
@@ -163,11 +169,12 @@ function loadData(){
  * Author: LCDAT (19/10/2022)
  */
 function showFormEmployeeInformation(){
-    // document.getElementById("formAddEmployee").style.display = "flex";
-    $('#formAddEmployee').css('display', 'flex');
-    // document.getElementById("txtEmployeeCode").focus();
-    $('#txtEmployeeCode').focus();
-
+    try {
+        $('#formAddEmployee').css('display', 'flex');
+        $('#txtEmployeeCode').focus();
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 /**
@@ -175,93 +182,66 @@ function showFormEmployeeInformation(){
  * Author: LCDAT (19/10/2022)
  */
 function closeFormEmployee(){
-    // document.getElementById("formAddEmployee").style.display = "none";
-    $('#formAddEmployee').css('display', 'none');
+    try {
+        $('#formAddEmployee').css('display', 'none');
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 
 /**
- * Thu/mở sidebar
- * Author: LCDAT (19/10/2022)
+ * Thu sidebar
+ * Author: LCDAT (23/10/2022)
  */
-function showHideMenu(){
-    // if(document.getElementById("wrapper").style.position == "relative"){
-    //     document.getElementById("wrapper").style.position = "static";
-    //     document.getElementById("headerAndMain").style.position = "static";
-    //     document.getElementById("headerAndMain").style.width = "calc(100% - 200px)";
-    // } else {
-    //     document.getElementById("wrapper").style.position = "relative";
-    //     document.getElementById("headerAndMain").style.position = "absolute";
-    //     document.getElementById("headerAndMain").style.left = "48px";
-    //     document.getElementById("headerAndMain").style.width = "calc(100% - 48px)";
-    // }
-    if($('#wrapper').css('position') == "relative"){
-        $('#wrapper').css('position', "static") ;
-        $('#headerAndMain').css('position', "static");
-        $('#headerAndMain').css('width', "calc(100% - 200px)");
-    } else {
-        $('#wrapper').css('position', "relative");
-        $('#headerAndMain').css('position',"absolute");
-        $('#headerAndMain').css('left', "48px");
-        $('#headerAndMain').css('width', "calc(100% - 48px)");
+function hideMenu(){
+    try {
+        if($('#wrapper').css('position') != "relative"){
+            $('#wrapper').css('position', "relative");
+            $('#headerAndMain').css('position',"absolute");
+            $('#headerAndMain').css('left', "48px");
+            $('#headerAndMain').css('width', "calc(100% - 48px)");
+            $('#iconGridLink').css('display', 'none');
+            $('#iconMenu').css('display', 'none');
+            $('#iconMenuSidebarLink').css('display', 'block');
+        } 
+    } catch (error) {
+        console.log(error);
     }
-    
 }
 
+/**
+ * Mở rộng sidebar
+ * Author: LCDAT (23/10/2022)
+ */
+function showMenu(){
+    try {
+        if($('#iconMenuSidebarLink').css('display', 'block')){
+            $('#wrapper').css('position', "static") ;
+            $('#headerAndMain').css('position', "static");
+            $('#headerAndMain').css('width', "calc(100% - 200px)");
+            $('#iconMenuSidebarLink').css('display', 'none');
+            $('#iconGridLink').css('display', 'block');
+            $('#iconMenu').css('display', 'block');
+        }    
+    } catch (error) {
+        console.log(error);
+    }
+}
 
+/**
+ * Ẩn hiện dropdown và dropup
+ * Author: LCDAT (23/10/2022)
+ */
 function showHideDropdown(dropdownItem){
-    if(dropdownItem.style.display == "block"){
-        dropdownItem.style.display = "none";
-    } else {
-        dropdownItem.style.display = "block";
-    }
-}
-
-
-
-/**
- * Ẩn hiện dropdown trên header
- * Author: LCDAT (19/10/2022)
- */
-function showHideHeaderDropdown(){
-    // if(document.querySelector(".m-wrap-dropdown-option").style.display == "block"){
-    //     document.querySelector(".m-wrap-dropdown-option").style.display = "none";
-    // } else {
-    //     document.querySelector(".m-wrap-dropdown-option").style.display = "block"
-    // }
-    if($('.m-wrap-dropdown-option').css('display') == "block"){
-        $('.m-wrap-dropdown-option').css('display', "none");
-    } else {
-        $('.m-wrap-dropdown-option').css('display', "block");
-    }
-}
-
-/**
- * Ẩn hiện dropup dưới Footer
- * Author: LCDAT (19/10/2022)
- */
-function showHideFooterDropup(){
-    if($('.m-wrap-dropup-option').css('display') == "block"){
-        $('.m-wrap-dropup-option').css('display', "none");
-    } else {
-        $('.m-wrap-dropup-option').css('display', "block");
-    }
-}
-
-/**
- * Ẩn hiện dropdown trên form Thông tin nhân viên
- * Author: LCDAT (19/10/2022)
- */
-function showHideFormDropdown(){
-    // if(document.querySelector("#comboboxUnitItems").style.display == "block"){
-    //     document.querySelector("#comboboxUnitItems").style.display = "none";
-    // } else {
-    //     document.querySelector("#comboboxUnitItems").style.display = "block"
-    // }
-    if($('#comboboxUnitItems').css('display') == "block"){
-        $('#comboboxUnitItems').css('display', "none");
-    } else {
-        $('#comboboxUnitItems').css('display', "block");
+    try {
+        if(dropdownItem.css('display') == "block"){
+            dropdownItem.css('display', "none");
+        } else {
+            dropdownItem.css('display', "block");
+        }
+    } catch (error) {
+        console.log(error);
     }
 }
 
@@ -270,116 +250,120 @@ function showHideFormDropdown(){
  * Author: LCDAT (19/10/2022)
  */
 function btnSaveByClick(){
-    //Validate dữ liệu
-    var isValid = validateData();
-    if(isValid){
-        //Thu thập dữ liệu
-        // let customer = $('#isCustomer');
-        // let provider = $('#isProvider');
-        var employeeCode = $('#txtEmployeeCode').val();
-        var fullName =  $('#txtFullName').val();
-        var unit =  $('#txtUnit').val();
-        var duty =  $('#txtDuty').val();
-        var dob =  $('#dateOfBirth').val();
+    try {
+        //Validate dữ liệu
+        var isValid = validateData();
+        if(isValid){
+            //Thu thập dữ liệu
+            // let customer = $('#isCustomer');
+            // let provider = $('#isProvider');
+            var employeeCode = $('#txtEmployeeCode').val();
+            var fullName =  $('#txtFullName').val();
+            var unit =  $('#txtUnit').val();
+            var duty =  $('#txtDuty').val();
+            var dob =  $('#dateOfBirth').val();
 
-        var gender = null;
-        var rdMale =  $('#rdMale');
-        var rdFemale =  $('#rdFemale');
-        var rdOther =  $('#rdOther');
-        if(rdMale[0].checked == true){
-            gender = 0;
-        } else if(rdFemale[0].checked == true){
-            gender = 1;
-        } else if(rdOther[0].checked == true){
-            gender = 2;
-        }
-
-        var identityNumber =  $('#txtIdentityNumber').val();
-        var dateRange =  $('#dateRange').val();
-        var providingPlace = $('#providingPlace').val();
-        var address =  $('#txtAddress').val();
-        var mobile =  $('#txtMobile').val();
-        var phone =  $('#txtPhone').val();
-        var email =  $('#txtEmail').val();
-        var bankId =  $('#txtBankId').val();
-        var bankName =  $('#txtBankName').val();
-        var bankBranch =  $('#txtBankBranch').val();
-
-        var employee = {
-            EmployeeCode : employeeCode,
-            EmployeeName : fullName,
-            DepartmentId : "142cb08f-7c31-21fa-8e90-67245e8b283e",
-            EmployeePosition : duty,
-            DateOfBirth : dob,
-            Gender : gender,
-            IdentityNumber: identityNumber,
-            IdentityDate: dateRange,
-            IdentityPlace: providingPlace,
-            Address: address,
-            PhoneNumber: mobile,
-            TelephoneNumber: phone,
-            Email: email,
-            BankAccountNumber: bankId,
-            BankName: bankName,
-            BankBranchName: bankBranch
-        };
-
-        //Gọi api thực hiện cất dữ liệu
-
-        //Cách 1: Dùng ajax trong jQuery
-
-        // $.ajax({
-        //     type: "POST",
-        //     url: "https://amis.manhnv.net/api/v1/employees",
-        //     data: JSON.stringify(employee),
-        //     dataType: "json",
-        //     //Gọi ajax phải khai báo thêm contentType
-        //     contentType: "application/json",
-        //     success: function (response) {
-        //         console.log(response);
-        //     }
-        // });
-
-        //Cách 2: Dung fetch dua duong dan api vao, su dung method post theo quy uoc de luu du lieu, sau do body chuyen du lieu thanh chuoi JSON de day len api
-
-        var statusCode = null;
-        fetch("https://amis.manhnv.net/api/v1/employees", {
-            method: "POST",
-            body: JSON.stringify(employee),
-            // Khai báo contentType để thông báo tới trình duyệt kiểu dữ liệu gửi tới và do yêu cầu bên api phải gửi đúng kiểu dữ liệu đó mới được
-            headers: {
-                'Content-Type': 'application/json'
+            var gender = null;
+            var rdMale =  $('#rdMale');
+            var rdFemale =  $('#rdFemale');
+            var rdOther =  $('#rdOther');
+            if(rdMale[0].checked == true){
+                gender = 0;
+            } else if(rdFemale[0].checked == true){
+                gender = 1;
+            } else if(rdOther[0].checked == true){
+                gender = 2;
             }
-            })
-            .then(res => {
-                statusCode = res.status;
-                return res.json();
-            })
-            .then(data => {
-                console.log(data);
-                switch (statusCode) {
-                    case 201:
-                        alert("Thêm mới thành công");
-                        // Ẩn dialog
-                        $('#formAddEmployee').hide();
-                        // Load lại dữ liệu
-                        loadData();
-                        break;
-                    case 400:
-                        alert(data.userMsg);
-                        break;
-                
-                    default:
-                        //Toast message
-                        break;
-                }
-            })
-            .catch(res => {
-                // Vào catch là xảy ra lỗi
-                console.log(res);
-            })
 
-        //Kiểm tra kết quả trả về -> Đưa ra thông báo
+            var identityNumber =  $('#txtIdentityNumber').val();
+            var dateRange =  $('#dateRange').val();
+            var providingPlace = $('#providingPlace').val();
+            var address =  $('#txtAddress').val();
+            var mobile =  $('#txtMobile').val();
+            var phone =  $('#txtPhone').val();
+            var email =  $('#txtEmail').val();
+            var bankId =  $('#txtBankId').val();
+            var bankName =  $('#txtBankName').val();
+            var bankBranch =  $('#txtBankBranch').val();
+
+            var employee = {
+                EmployeeCode : employeeCode,
+                EmployeeName : fullName,
+                DepartmentId : "142cb08f-7c31-21fa-8e90-67245e8b283e",
+                EmployeePosition : duty,
+                DateOfBirth : dob,
+                Gender : gender,
+                IdentityNumber: identityNumber,
+                IdentityDate: dateRange,
+                IdentityPlace: providingPlace,
+                Address: address,
+                PhoneNumber: mobile,
+                TelephoneNumber: phone,
+                Email: email,
+                BankAccountNumber: bankId,
+                BankName: bankName,
+                BankBranchName: bankBranch
+            };
+
+            //Gọi api thực hiện cất dữ liệu
+
+            //Cách 1: Dùng ajax trong jQuery
+
+            // $.ajax({
+            //     type: "POST",
+            //     url: "https://amis.manhnv.net/api/v1/employees",
+            //     data: JSON.stringify(employee),
+            //     dataType: "json",
+            //     //Gọi ajax phải khai báo thêm contentType
+            //     contentType: "application/json",
+            //     success: function (response) {
+            //         console.log(response);
+            //     }
+            // });
+
+            //Cách 2: Dung fetch dua duong dan api vao, su dung method post theo quy uoc de luu du lieu, sau do body chuyen du lieu thanh chuoi JSON de day len api
+
+            var statusCode = null;
+            fetch("https://amis.manhnv.net/api/v1/employees", {
+                method: "POST",
+                body: JSON.stringify(employee),
+                // Khai báo contentType để thông báo tới trình duyệt kiểu dữ liệu gửi tới và do yêu cầu bên api phải gửi đúng kiểu dữ liệu đó mới được
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+                })
+                .then(res => {
+                    statusCode = res.status;
+                    return res.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    switch (statusCode) {
+                        case 201:
+                            alert("Thêm mới thành công");
+                            // Ẩn dialog
+                            $('#formAddEmployee').hide();
+                            // Load lại dữ liệu
+                            loadData();
+                            break;
+                        case 400:
+                            alert(data.userMsg);
+                            break;
+                    
+                        default:
+                            //Toast message
+                            break;
+                    }
+                })
+                .catch(res => {
+                    // Vào catch là xảy ra lỗi
+                    console.log(res);
+                })
+
+            //Kiểm tra kết quả trả về -> Đưa ra thông báo
+        }
+    } catch (error) {
+        console.log(error);
     }
 }
 
@@ -388,28 +372,32 @@ function btnSaveByClick(){
  * Author: LCDAT (19/10/2022)
  */
 function validateData(){
-    var isValid = true;
-    //Các thông tin bắt buộc nhập
-    //Lấy ra toàn bộ các thông tin bắt buộc nhập
-    var inputRequireds = getAllElementsWithAttribute("required");
-    for (const input of inputRequireds) {
-        var value = input.value;
-        if(!value){
-            //Thêm border đỏ
-            input.classList.add('err-input');
-            // $('.m-input-id .err-text').css('display', 'flex');
-            isValid = false;
-        } else {
-            //Bỏ border đỏ
-            input.classList.remove('err-input');
-            // $('.m-input-id .err-text').css('display', 'none');
+    try {
+        var isValid = true;
+        //Các thông tin bắt buộc nhập
+        //Lấy ra toàn bộ các thông tin bắt buộc nhập
+        var inputRequireds = getAllElementsWithAttribute("required");
+        for (const input of inputRequireds) {
+            var value = input.value;
+            if(!value){
+                //Thêm border đỏ
+                input.classList.add('err-input');
+                // $('.m-input-id .err-text').css('display', 'flex');
+                isValid = false;
+            } else {
+                //Bỏ border đỏ
+                input.classList.remove('err-input');
+                // $('.m-input-id .err-text').css('display', 'none');
+            }
         }
+        return isValid;
+
+        //Các thông tin đúng định dạng
+
+        //Ngày tháng
+    } catch (error) {
+        console.log(error);
     }
-    return isValid;
-
-    //Các thông tin đúng định dạng
-
-    //Ngày tháng
 
 }
 
@@ -419,35 +407,23 @@ function validateData(){
  * @returns 
  * Author: LCDAT (20/10/2022)
  */
-function getAllElementsWithAttribute(attribute)
-{
-  var matchingElements = [];
-  var allElements = $('*');
-  for (var i = 0, n = allElements.length; i < n; i++)
-  {
-    if (allElements[i].getAttribute(attribute) !== null)
+function getAllElementsWithAttribute(attribute){
+  try {
+    var matchingElements = [];
+    var allElements = $('*');
+    for (var i = 0, n = allElements.length; i < n; i++)
     {
-      // Element exists with attribute. Add to array.
-      matchingElements.push(allElements[i]);
+        if (allElements[i].getAttribute(attribute) !== null)
+        {
+        // Element exists with attribute. Add to array.
+        matchingElements.push(allElements[i]);
+        }
     }
+    return matchingElements;
+  } catch (error) {
+    console.log(error);
   }
-  return matchingElements;
 }
-
-//Chọn Dropdown header
-// let items = document.getElementsByClassName("m-option");
-// for(let i = 0; i < items.length; i++){
-//     items[i].setAttribute("onclick", "changeValue(this)");
-// }
-
-// function changeValue(e){
-//     document.getElementById("companyName").value = e.innerText;
-// }
-
-
-// let wrapEdit = document.querySelectorAll(".wrap-btn-edit");
-
-
 
 /**
  * Checkbox tích cho toàn bộ nhân viên
@@ -455,8 +431,12 @@ function getAllElementsWithAttribute(attribute)
  */
 
 function checkAllChange(){
-    // #checkAll thay đổi như nào sẽ kéo theo .check-employee thay đổi theo như vậy
-    $(".check-employee").prop("checked", $('#checkAll').prop("checked"));
+    try {
+        // #checkAll thay đổi như nào sẽ kéo theo .check-employee thay đổi theo như vậy
+        $(".check-employee").prop("checked", $('#checkAll').prop("checked"));
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 
@@ -465,10 +445,14 @@ function checkAllChange(){
  * Author: LCDAT (22/10/2022)
  */
 function checkItemChange(){
-    if($('.check-employee:checked').length == $('.check-employee').length){
-        $('#checkAll').prop('checked', true);
-    } 
-    else {
-        $('#checkAll').prop('checked', false);
+    try {
+        if($('.check-employee:checked').length == $('.check-employee').length){
+            $('#checkAll').prop('checked', true);
+        } 
+        else {
+            $('#checkAll').prop('checked', false);
+        }
+    } catch (error) {
+        console.log(error);
     }
 }

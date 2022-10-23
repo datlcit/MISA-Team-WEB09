@@ -135,7 +135,8 @@ p{
 
 /* icon lưới dẫn về menu */
 .m-icon-grid{
-    background: url(../../assets/img/Sprites.64af8f61.svg) no-repeat -425px -88px;
+    background: url(../../assets/img/Sprites.64af8f61.svg) no-repeat;
+    background-position:  -425px -88px;
 }
 
 /* CHiều cao chuẩn cho logo theo STL */
@@ -266,9 +267,14 @@ p{
 }
 
 /* nút icon menu */
-#iconMenu{
+#iconMenu, #iconMenuSidebar{
     background-image: url(../../assets/img/Sprites.64af8f61.svg);
     background-position: -843px -30px;
+}
+
+/* nút icon menu ở sidebar*/
+#iconMenuSidebarLink{
+    display: none;
 }
 
 /* Cách trái cho dropdown, dropdown chi tiết ở tệp dropdown.css */
@@ -402,8 +408,7 @@ p{
     font-weight: 700;
 }
 .three-dots{
-    margin-left: 24px;
-    margin-right: 12px;
+    margin: 0 12px;
 }
 
 
