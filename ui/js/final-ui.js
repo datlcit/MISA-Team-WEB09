@@ -1,4 +1,4 @@
-import { renderDataFromApi, loadData, getRangeRecords, btnSaveByClick} from "./api.js";
+import { renderDataFromApi, loadData, getRangeRecords, btnSaveByClick, getDataByPageNumber} from "./api.js";
 
 
 // -------------------------------------------------------
@@ -75,7 +75,7 @@ function initEvents(){
         //Chọn công ty (truyền vào các tham số theo thứ tự: (id hoặc class, data-name, phần nội dung cần thay đổi, dữ liệu trả về)
         chooseOption($('.option-companies'), 'name', $('#companyName'));
 
-        //Chọn số bản ghi trong 1 trang (truyền vào các tham số theo thứ tự: (id hoặc class, data-name, phần nội dung cần thay đổi, dữ liệu trả về)
+        //Chọn số bản ghi trong 1 trang (truyền vào các tham số theo thứ tự: (id hoặc class, data-name, phần nội dung cần thay đổi)
         chooseOption($('.option-records'), 'name', $('#choiceRangeRecord'));
 
         //Render bản ghi ra table
@@ -85,6 +85,11 @@ function initEvents(){
 
         //Chọn số phòng ban (truyền vào các tham số theo thứ tự: (id hoặc class, data-name, phần nội dung cần thay đổi, dữ liệu trả về)
         chooseOption($('.option-departments'), 'name');
+
+        //Phân trang theo nút số trang
+        $('.page-number').click(function(){
+            getDataByPageNumber(choosePageNumber($(this), 'page-number'));
+        });
 
         // Nút Cất
         $('#btnSave').click(validateData);
@@ -186,7 +191,7 @@ function showHideDropdown(dropdownItem){
 }
 
 /**
- * Lấy data trên dropdown và dropup
+ * Đổi nội dung trên thân dropdown và dropup
  * @param {element} item Vùng lựa chọn
  * @param {kiểu dataset} dataName dạng data theo khai báo bên html
  * @param {element} choice element lựa chọn ở trong vùng
@@ -199,6 +204,22 @@ function chooseOption(item, dataName, choice){
                 choice.text($(this).data(dataName));
             })
         })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+/**
+ * ấy ra số trang hiện tại
+ * @param {element} item class chung các số trang
+ * @param {dataset} data tên data chung của các số trang
+ * @returns 
+ */
+function choosePageNumber(item, data){
+    try {
+        console.log($(item).data(data));
+        return $(item).data(data);
     } catch (error) {
         console.log(error);
     }

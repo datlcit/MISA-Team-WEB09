@@ -312,7 +312,7 @@
                             <div class="pagination  row-jus-center">
                                 <div class="select-total-record">
                                     <div id="mDropupRangeItem" class="m-dropdown m-dropup-range-item row-jus-between">
-                                        <p id="choiceRangeRecord">20 bản ghi trên một trang</p>
+                                        <p data-choice-records = 20 id="choiceRangeRecord">20 bản ghi trên một trang</p>
                                         <div class="iconfont-div"><i class="icofont-curved-down"></i></div>
                                         <div id="mWrapDropupPagination" class="wrap-up-down-option m-wrap-dropup-option">
                                             <div data-records = 10 data-name = '10 bản ghi trên 1 trang' class="m-option option-records"><p>10 bản ghi trên 1 trang</p></div>
@@ -329,21 +329,27 @@
                                     <div class="btn-prev cs-pointer">
                                         <a href="">Trước</a>
                                     </div>
-                                    <div class="page-number cs-pointer">
-                                        <a href="">1</a>
+                                    <div data-page-number = 1 class="page-number cs-pointer">
+                                        <a class="num" href="javascript:void(0)">1</a>
                                     </div>
-                                    <div class="page-number cs-pointer">
-                                        <a href="">2</a>
+                                    <div data-page-number = 2 class="page-number cs-pointer">
+                                        <a class="num" href="javascript:void(0)">2</a>
                                     </div>
-                                    <div class="page-number cs-pointer">
-                                        <a href="">3</a>
+                                    <div data-page-number = 3 class="page-number cs-pointer">
+                                        <a class="num" href="javascript:void(0)">3</a>
                                     </div>
-                                    <div class="three-dots cs-pointer">
+                                    <div data-page-number = 4 class="page-number cs-pointer">
+                                        <a class="num" href="javascript:void(0)">4</a>
+                                    </div>
+                                    <div data-page-number = 5 class="page-number cs-pointer">
+                                        <a class="num" href="javascript:void(0)">5</a>
+                                    </div>
+                                    <!-- <div class="three-dots cs-pointer">
                                         <p>...</p>
                                     </div>
                                     <div class="page-number cs-pointer">
                                         <a href="">52</a>
-                                    </div>
+                                    </div> -->
                                     <div class="btn-next cs-pointer">
                                         <a href="">Sau</a>
                                     </div>

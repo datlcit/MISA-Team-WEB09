@@ -106,6 +106,32 @@ export function renderDataFromApi(res){
                 renderDataFromApi(response.Data);
             }
         });
+
+        // Gán pageSize cho ô hiển thị số records chính để gọi ra ở hàm chọn số trang
+        $('#choiceRangeRecord').data('choice-records', pageSize);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+/**
+ * Chọn số trang
+ * Author: LCDAT (24/10/2022)
+ */
+export function getDataByPageNumber(pageNumber){
+    try {
+        // Gán biến tham chiếu tới dữ liệu của ô hiển thị số records chính
+        let pageSize = $('#choiceRangeRecord').data('choice-records');
+        $.ajax({
+            type: "GET",
+            url: `https://amis.manhnv.net/api/v1/Employees/filter?pageSize=${pageSize}&pageNumber=${pageNumber}`,
+            // data: "data",
+            // dataType: "dataType",
+            success: function (response) {
+                // console.log(response);
+                renderDataFromApi(response.Data);
+            }
+        });
     } catch (error) {
         console.log(error);
     }
