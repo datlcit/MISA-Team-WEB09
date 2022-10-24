@@ -15,4 +15,6 @@
 
 .combobox-unit_items{
     display: none;
+    position: absolute;
+    top: 44px;
 }

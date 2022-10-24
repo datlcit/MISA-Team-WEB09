@@ -16,7 +16,7 @@
                 <a id="iconGridLink" href="">
                     <div id="iconGrid" class="m-icon-grid m-icon-24"></div>
                 </a>
-                <a id="iconMenuSidebarLink" href="">
+                <a id="iconMenuSidebarLink" href="javascript:void(0)">
                     <div id="iconMenuSidebar" class="m-icon-24 cs-pointer"></div>
                 </a>
                 <div class="m-logo">
@@ -161,12 +161,12 @@
                                 <p id="companyName">Công ty TNHH SẢN XUẤT - THƯƠNG MẠI - THƯƠNG MẠI QUI PHÚC</p>
                                 <div class="iconfont-div"><i class="icofont-curved-down"></i></div>
                                 <div id="mDropdownHeader" class="wrap-up-down-option m-wrap-dropdown-option">
-                                    <div class="m-option"><p>Công ty TNHH SẢN XUẤT - THƯƠNG MẠI - THƯƠNG MẠI QUI PHÚC</p></div>
-                                    <div class="m-option"><p>Công ty B</p></div>
-                                    <div class="m-option"><p>Công ty C</p></div>
-                                    <div class="m-option"><p>Công ty D</p></div>
-                                    <div class="m-option"><p>Công ty E</p></div>
-                                    <div class="m-option"><p>Công ty F</p></div>
+                                    <div data-name = 'Công ty TNHH SẢN XUẤT - THƯƠNG MẠI - THƯƠNG MẠI QUI PHÚC' class="m-option option-companies"><p>Công ty TNHH SẢN XUẤT - THƯƠNG MẠI - THƯƠNG MẠI QUI PHÚC</p></div>
+                                    <div data-name = 'Công ty B' class="m-option option-companies"><p>Công ty B</p></div>
+                                    <div data-name = 'Công ty C' class="m-option option-companies"><p>Công ty C</p></div>
+                                    <div data-name = 'Công ty D' class="m-option option-companies"><p>Công ty D</p></div>
+                                    <div data-name = 'Công ty E' class="m-option option-companies"><p>Công ty E</p></div>
+                                    <div data-name = 'Công ty F' class="m-option option-companies"><p>Công ty F</p></div>
                                 </div>
                             </div>
                         </div>
@@ -187,7 +187,7 @@
             <div class="main">
                 <div class="row-jus-between title-table-and-add-btn">
                     <div class="title-table">
-                        <h1>Nhân viên</h1>
+                        <h1 class="title-table-text">Nhân viên</h1>
                     </div>
                     <button id="btnAddEmployee" class="m-btn m-btn-bg-green">Thêm mới nhân viên</button>
                 </div>
@@ -312,15 +312,16 @@
                             <div class="pagination  row-jus-center">
                                 <div class="select-total-record">
                                     <div id="mDropupRangeItem" class="m-dropdown m-dropup-range-item row-jus-between">
-                                        <p>20 bản ghi trên một trang</p>
+                                        <p id="choiceRangeRecord">20 bản ghi trên một trang</p>
                                         <div class="iconfont-div"><i class="icofont-curved-down"></i></div>
                                         <div id="mWrapDropupPagination" class="wrap-up-down-option m-wrap-dropup-option">
-                                            <div class="m-option"><p>20 bản ghi trên 1 trang</p></div>
-                                            <div class="m-option"><p>40 bản ghi trên 1 trang</p></div>
-                                            <div class="m-option"><p>60 bản ghi trên 1 trang</p></div>
-                                            <div class="m-option"><p>80 bản ghi trên 1 trang</p></div>
-                                            <div class="m-option"><p>100 bản ghi trên 1 trang</p></div>
-                                            <div class="m-option"><p>120 bản ghi trên 1 trang</p></div>
+                                            <div data-records = 10 data-name = '10 bản ghi trên 1 trang' class="m-option option-records"><p>10 bản ghi trên 1 trang</p></div>
+                                            <div data-records = 20 data-name = '20 bản ghi trên 1 trang' class="m-option option-records"><p>20 bản ghi trên 1 trang</p></div>
+                                            <div data-records = 30 data-name = '30 bản ghi trên 1 trang'  class="m-option option-records"><p>30 bản ghi trên 1 trang</p></div>
+                                            <div data-records = 40 data-name = '40 bản ghi trên 1 trang'  class="m-option option-records"><p>40 bản ghi trên 1 trang</p></div>
+                                            <div data-records = 50 data-name = '50 bản ghi trên 1 trang'  class="m-option option-records"><p>50 bản ghi trên 1 trang</p></div>
+                                            <!-- <div data-records = 100 data-name = '100 bản ghi trên 1 trang'  class="m-option option-records"><p>100 bản ghi trên 1 trang</p></div>
+                                            <div data-records = 120 data-name = '120 bản ghi trên 1 trang'  class="m-option option-records"><p>120 bản ghi trên 1 trang</p></div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -392,12 +393,12 @@
                                 <input id="txtUnit" tabindex="3" class="m-input m-input-information m-input-unit" type="text" placeholder="VD: Phòng hành chính">
                                 <div id="comboboxUnitBtn" class="row-jus-center wh-34 combobox-unit__btn cs-pointer"><i class="icofont-curved-down"></i></div>
                                 <div id="comboboxUnitItems" class="wrap-up-down-option m-wrap-dropdown-option combobox-unit_items">
-                                    <div class="m-option cs-pointer"><p>Phòng tài chính</p></div>
-                                    <div class="m-option cs-pointer"><p>Phòng kế toán</p></div>
-                                    <div class="m-option cs-pointer"><p>Phòng kinh doanh</p></div>
-                                    <div class="m-option cs-pointer"><p>Phòng hành chính</p></div>
-                                    <div class="m-option cs-pointer"><p>Phòng IT</p></div>
-                                    <div class="m-option cs-pointer"><p>Phòng marketing</p></div>
+                                    <div data-name= "Phòng tài chính" class="m-option option-departments cs-pointer"><p>Phòng tài chính</p></div>
+                                    <div data-name= "Phòng kế toán" class="m-option option-departments cs-pointer"><p>Phòng kế toán</p></div>
+                                    <div data-name= "Phòng kinh doanh" class="m-option option-departments cs-pointer"><p>Phòng kinh doanh</p></div>
+                                    <div data-name= "Phòng hành chính" class="m-option option-departments cs-pointer"><p>Phòng hành chính</p></div>
+                                    <div data-name= "Phòng IT" class="m-option option-departments cs-pointer"><p>Phòng IT</p></div>
+                                    <div data-name= "Phòng marketing" class="m-option option-departments cs-pointer"><p>Phòng marketing</p></div>
                                 </div>
                             </div>
                         </div>
@@ -483,7 +484,7 @@
         </div>
     </div>
 
-    <script src="js/final-ui.js"></script>
+    <script src="js/final-ui.js" type="module"></script>
     <script src="js/jquery-3.6.1.min.js"></script>
 </body>
 </html>

@@ -277,6 +277,11 @@ p{
     display: none;
 }
 
+/* Hiển thị tên công ty đang chọn */
+#companyName{
+    font-weight: 700;
+}
+
 /* Cách trái cho dropdown, dropdown chi tiết ở tệp dropdown.css */
 .m-company-dropdown{
     margin-left: 16px;
