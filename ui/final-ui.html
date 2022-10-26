@@ -248,60 +248,14 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr class="table-row">
-                                        <td class="text-box-flex col-textbox">
-                                            <input class="check-employee" type="checkbox">
-                                        </td>
-                                        <td class="table-data col-id">MF1435</td>
-                                        <td class="table-data col-name">Lý Chính Đạt</td>
-                                        <td class="table-data col-gender">Nam</td>
-                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
-                                        <td class="table-data col-identity-number">0123456789</td>
-                                        <td class="table-data col-duty">Fresher Web</td>
-                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
-                                        <td class="table-data col-num-account">0123456789</td>
-                                        <td class="table-data col-bank">ACB</td>
-                                        <td class="table-data col-bank-branch">Duy Tân</td>
-                                        <td class="table-data table-edit td-edit-sticky col-edit">
-                                            <div class="cell-edit">
-                                                <p class="edit-text">Sửa</p>
-                                                <div class="wrap-btn-edit">
-                                                    <div class="btn-edit-function"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="table-row">
-                                        <td class="text-box-flex col-textbox">
-                                            <input class="check-employee" type="checkbox">
-                                        </td>
-                                        <td class="table-data col-id">MF1435</td>
-                                        <td class="table-data col-name">Lý Chính Đạt</td>
-                                        <td class="table-data col-gender">Nam</td>
-                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
-                                        <td class="table-data col-identity-number">0123456789</td>
-                                        <td class="table-data col-duty">Fresher Web</td>
-                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
-                                        <td class="table-data col-num-account">0123456789</td>
-                                        <td class="table-data col-bank">ACB</td>
-                                        <td class="table-data col-bank-branch">Duy Tân</td>
-                                        <td class="table-data table-edit td-edit-sticky col-edit">
-                                            <div class="cell-edit">
-                                                <p class="edit-text">Sửa</p>
-                                                <div class="wrap-btn-edit">
-                                                    <div class="btn-edit-function"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
                                 </tbody> -->
                             </table>
                             <!--Dropdown menu Sửa-->
-                            <!-- <div class="wrap-up-down-option edit-list">
+                            <div class="wrap-up-down-option edit-list">
                                 <div class="m-option cs-pointer"><p class="primary-text">Nhân bản</p></div>
                                 <div class="m-option cs-pointer"><p class="primary-text">Xóa</p></div>
                                 <div class="m-option cs-pointer"><p class="primary-text">Ngưng sử dụng</p></div>
-                            </div> -->
+                            </div>
 
                         </div>
                         <!-- Chân trang -->
@@ -386,12 +340,12 @@
                         <div class="row m-information m-input-id w-40">
                             <label>Mã <span>*</span></label>
                             <input required tabindex="1" class="required m-input m-input-information" type="text" name="" id="txtEmployeeCode" placeholder="VD: NV01">
-                            <span class="err-text" title="Mã khách hàng không được phép để trống">Mã khách hàng không được phép để trống</span>
+                            <span class="err-text" title="Mã nhân viên không được phép để trống">Mã khách hàng không được phép để trống</span>
                         </div>
                         <div class="row m-information m-input-fullname margin-left-8">
                             <label>Tên <span>*</span></label>
                             <input required tabindex="2" class="required m-input m-input-information" type="text" name="" id="txtFullName" placeholder="VD: Lý Đạt">
-                            <span class="err-text" title="Tên khách hàng không được phép để trống">Tên khách hàng không được phép để trống</span>
+                            <span class="err-text" title="Tên nhân viên không được phép để trống">Tên khách hàng không được phép để trống</span>
                         </div>
                         <div class="m-flex m-information m-input-unit w-100">
                             <label>Đơn vị <span>*</span></label>
@@ -487,6 +441,49 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Báo không được trùng mã-->
+    <div id="wrapperCheckData" class="bg-overlay">
+        <div class="error-id-dialog">
+            <div class="error-id-dialog-padding">
+                <div class="warning-icon-and-text">
+                    <div class="warning-icon"></div>
+                    <div class="warning-text">
+                        <p id="warningText" class="primary-text"></p>
+                        <!-- Mã nhân viên NV001 đã tồn tại trong hệ <br> thống, vui lòng kiểm tra lại -->
+                    </div>
+                </div>
+            </div>
+            <div class="btn-agree">
+                <button class="m-btn m-btn-bg-green">Đồng ý</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Báo không được để trống -->
+    <div id="wrapperRequired" class="bg-overlay">
+        <div class="error-id-dialog">
+            <div class="error-id-dialog-padding">
+                <div class="warning-icon-and-text">
+                    <div class="red-warning-icon"></div>
+                    <div class="warning-text row-jus-center">
+                        <p class="primary-text">Mã không được để trống</p>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-close row-jus-center">
+                <button class="m-btn m-btn-bg-green">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thêm mới thành công -->
+    <div class="successful-item">
+        <div class="successful-content">
+            <p>Thêm mới thành công!</p>
+            <i class="icofont-check-circled"></i>
         </div>
     </div>
 

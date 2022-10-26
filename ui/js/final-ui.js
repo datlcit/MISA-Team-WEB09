@@ -59,17 +59,17 @@ function initEvents(){
         
         // Ẩn hiện dropdown trên header
         $('#mDropdowmListCompany').click(function(){
-            showHideDropdown($('#mDropdownHeader'));
+            showHide($('#mDropdownHeader'));
         });
 
         // Ẩn hiện dropup dưới chân trang
         $('#mDropupRangeItem').click(function(){
-            showHideDropdown($('#mWrapDropupPagination'));
+            showHide($('#mWrapDropupPagination'));
         });
 
         // Ẩn hiện dropdown trong form Thông tin nhân viên
         $('#comboboxUnitBtn').click(function(){
-            showHideDropdown($('#comboboxUnitItems'));
+            showHide($('#comboboxUnitItems'));
         });
 
         //Chọn công ty (truyền vào các tham số theo thứ tự: (id hoặc class, data-name, phần nội dung cần thay đổi, dữ liệu trả về)
@@ -101,7 +101,19 @@ function initEvents(){
         $('#checkAll').change(checkAllChange);
 
         //Nút check từng nhân viên
-        $('.check-employee').change(checkItemChange);
+        $(document).on('change', $('.check-employee'), function(){
+            checkItemChange();
+        })
+        
+        // Nút đóng popup cảnh báo sai dữ liệu
+        $('.btn-agree button').click(function(){
+            hideWarning($('#wrapperCheckData'));
+        });
+
+        //Nút đóng popup không được để trống
+        $('.btn-close button').click(function(){
+            hideWarning($('#wrapperRequired'));
+        });
     } catch (error) {
         console.log(error);
     }
@@ -176,15 +188,43 @@ function showMenu(){
 
 /**
  * Ẩn hiện dropdown và dropup
+ * @param {element} item Truyền element cần ẩn hoặc hiện
  * Author: LCDAT (23/10/2022)
  */
-function showHideDropdown(dropdownItem){
+export function showHide(item){
     try {
-        if(dropdownItem.css('display') == "block"){
-            dropdownItem.css('display', "none");
+        if(item.css('display') == "block"){
+            item.css('display', "none");
         } else {
-            dropdownItem.css('display', "block");
+            item.css('display', "block");
         }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+/**
+ * Hiện các popup cảnh báo
+ * @param {element} item Đối tượng cần hiện
+ * @param {element} itemText Đối tượng chứa nội dung cảnh báo
+ * @param {string} text Nội dung cảnh báo
+ */
+export function showWarning(item, itemText, text){
+    try {
+        $(item).css('display', 'flex');
+        $(itemText).text(text);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+/**
+ * Ẩn các popup cảnh báo
+ * @param {element} item Đối tượng cần ẩn
+ */
+function hideWarning(item){
+    try {
+        $(item).css('display', 'none');
     } catch (error) {
         console.log(error);
     }
@@ -214,7 +254,7 @@ function chooseOption(item, dataName, choice){
  * ấy ra số trang hiện tại
  * @param {element} item class chung các số trang
  * @param {dataset} data tên data chung của các số trang
- * @returns 
+ * @returns trả về kết quả validate
  */
 function choosePageNumber(item, data){
     try {
@@ -229,7 +269,7 @@ function choosePageNumber(item, data){
  * Thực hiện validate dữ liệu
  * Author: LCDAT (19/10/2022)
  */
-function validateData(){
+export function validateData(){
     try {
         var isValid = true;
         //Các thông tin bắt buộc nhập
@@ -242,6 +282,16 @@ function validateData(){
                 input.classList.add('err-input');
                 // $('.m-input-id .err-text').css('display', 'flex');
                 isValid = false;
+
+                // Hiển thị popup báo lỗi để trống
+                if($('#txtEmployeeCode').val() == ''){
+                    showWarning($('#wrapperRequired'), $('.warning-text p'), 'Mã nhân viên không được để trống');
+                    break;
+                }
+                if($('#txtFullName').val() == ''){
+                    showWarning($('#wrapperRequired'), $('.warning-text p'), 'Tên nhân viên không được để trống');
+                    break;
+                }
             } else {
                 //Bỏ border đỏ
                 input.classList.remove('err-input');
@@ -262,7 +312,7 @@ function validateData(){
 /**
  * Lấy element bằng tên attribute
  * @param {string} attribute 
- * @returns 
+ * return Element tìm được
  * Author: Web (20/10/2022)
  */
 function getAllElementsWithAttribute(attribute){
@@ -314,3 +364,25 @@ function checkItemChange(){
         console.log(error);
     }
 }
+
+/**
+ * Ẩn hiện chức năng nút Sửa
+ * Author: LCDAT (26/10/2022)
+ */
+export function showHideDropdownFixed(){
+    try {
+        $('.wrap-btn-edit').each(function(){
+            $(this).click(function(){
+                let coor = $(this)[0].getBoundingClientRect();
+                showHide($('.edit-list'));
+                $('.edit-list').css('position', 'fixed')
+                $('.edit-list').css('top', coor.y + 20);
+                $('.edit-list').css('left', coor.x - 90);
+            })
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+

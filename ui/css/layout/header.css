@@ -1,0 +1,62 @@
+/* HEADER */
+
+/* Căn lề và giãn nội dung header */
+.m-wrap-header-content{
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Căn giữa toàn bộ item trong header */
+.m-header-left, .m-header-right, .m-profile{
+    align-items: center;
+}
+
+/* nút icon menu */
+#iconMenu, #iconMenuSidebar{
+    background-image: url(../../assets/img/Sprites.64af8f61.svg);
+    background-position: -843px -30px;
+}
+
+/* nút icon menu ở sidebar*/
+#iconMenuSidebarLink{
+    display: none;
+}
+
+/* Hiển thị tên công ty đang chọn */
+#companyName{
+    font-weight: 700;
+}
+
+/* Cách trái cho dropdown, dropdown chi tiết ở tệp dropdown.css */
+.m-company-dropdown{
+    margin-left: 16px;
+}
+
+/* icon thông báo */
+.m-icon-notification{
+    background-image: url(../../assets/img/Sprites.64af8f61.svg);
+    background-position: -787px -30px;
+    margin-right: 24px;
+}
+
+/* ảnh đại diện */
+.m-profile-ava{
+    margin-right: 4px;
+}
+
+/* chỉnh cỡ chữ và màu cho icon trên header*/
+.m-profile i, .m-profile-ava i{
+    font-size: 24px;
+    color: #65696E;
+}
+
+/* Tên user */
+.m-profile-name{
+    margin: 0 5px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #212121;
+}
+
+/* ------------------------------------------ */

@@ -111,3 +111,24 @@
 .m-wrap-dropup-option{
     border: 1px solid #306F24;
 }
+
+/* Dropdown các chức năng nút Sửa */
+.edit-list{
+    display: block;
+    overflow: hidden;
+    width: max-content;
+    border: 2px solid #EEEEEE;
+    top: calc(100% + 3px);
+    left: -100px;
+
+    /* Ân bớt ds chức năng */
+    display: none;
+}
+
+.edit-list .m-option:hover{
+    background-color: #E0E0E0;
+}
+
+.edit-list .m-option:hover p{
+    color: #06da10;
+}

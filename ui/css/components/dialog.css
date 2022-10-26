@@ -1,4 +1,4 @@
-/* Form nhap thong tin nhan vien */
+/* Form nhap thong tin nhan vien */ /* Form nhap thong tin nhan vien */ /* Form nhap thong tin nhan vien */
 
 label{
     font-weight: 700;
@@ -95,15 +95,11 @@ label span{
     margin-right: 8px;
 }
 
-/* .contact-info, .bank-info{
-    width: 75%;
-    justify-content: space-between;
-} */
 
-/* Canh bao ma nhan vien da ton tai */
+/* Canh bao ma nhan vien da ton tai */ /* Canh bao ma nhan vien da ton tai */ /* Canh bao ma nhan vien da ton tai */ /* Canh bao ma nhan vien da ton tai */
 
 /* Vùng mờ tối xung quanh */
-.bg-overlay{
+.bg-overlay {
     position: fixed;
     top: 0;
     right: 0;
@@ -113,8 +109,9 @@ label span{
     display: flex;
     justify-content: center;
     align-items: center;
-    display: none;
     z-index: 100;
+
+    display: none;
 }
 
 /* Khung cảnh báo */
@@ -159,7 +156,7 @@ label span{
     justify-content: flex-end;
 }
 
-/* set vị trí cho button Đóng trong trang khong-duoc-de-trong.html*/
+/* Popup không được để trống */ /* Popup không được để trống */ /* Popup không được để trống */ /* Popup không được để trống */ /* Popup không được để trống */
 .red-warning-icon{
     background: url(../../assets/img/Sprites.64af8f61.svg) no-repeat -752px -462px;
 	width: 36px;
@@ -168,3 +165,34 @@ label span{
 .btn-close{
     flex: 1;
  }
+
+ /* Popup thành công */  /* Popup thành công */  /* Popup thành công */  /* Popup thành công */ /* Popup thành công */  /* Popup thành công */
+.successful-item{
+    position: fixed;
+    border: 1px solid #000000;
+    background-color: #fff;
+    right: 100px;
+    bottom: 50px;
+    border-radius: 4px;
+    background-color: #eee;
+
+    display: none;
+}
+
+.successful-content{
+    padding: 24px
+}
+.successful-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.successful-content i{
+    font-size: 30px;
+    margin-left: 24px;
+    color: #409330;
+}

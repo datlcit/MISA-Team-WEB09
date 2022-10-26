@@ -1,24 +1,25 @@
-body{
-    margin: 0;
-}
+@import url(header.css);
+@import url(sidebar.css);
+@import url(main.css);
+@import url(pagination.css);
 
+/* --------------------------------- */
+/* CHIA LAYOUT */
+.sidebar{
+    width: 200px;
+    height: 100%;
+}
+.header-and-main{
+    height: 100%;
+    width: calc(100% - 200px);
+}
 .header{
-    float: left;
     height: 56px;
     width: 100%;
-    background-color: aqua;
+    background-color: #fff;
 }
-
-.sidebar{
-    float: left;
-    width: 200px;
-    height: calc(100vh - 56px);
-    background-color: #38393d;
-}
-
 .main{
-    float: left;
-    width: calc(100% - 200px);
-    height: calc(100vh - 56px);
-    background-color: blue;
+    width: 100%;
+    height: calc(100% - 56px);
+    background-color: #EEEFF1;
 }

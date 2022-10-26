@@ -1,3 +1,5 @@
+import {validateData, showHideDropdownFixed, showWarning, showHide} from "./final-ui.js";
+
 /**
  * Trả về dữ liệu từ api
  * @param {array} res dữ liệu trả về
@@ -54,6 +56,8 @@ export function renderDataFromApi(res){
                         </tr>`);
         $('#tblEmployee tbody').append(trHTML);
     }
+    // Gọi tới hàm bắt sự kiện dropdown các chức năng Sửa
+    showHideDropdownFixed();
 }
 
 /**
@@ -109,6 +113,7 @@ export function renderDataFromApi(res){
 
         // Gán pageSize cho ô hiển thị số records chính để gọi ra ở hàm chọn số trang
         $('#choiceRangeRecord').data('choice-records', pageSize);
+
     } catch (error) {
         console.log(error);
     }
@@ -232,14 +237,21 @@ export function getDataByPageNumber(pageNumber){
                     console.log(data);
                     switch (statusCode) {
                         case 201:
-                            alert("Thêm mới thành công");
+                            // Hiện thông báo đã thêm mới thành công
+                            showHide($('.successful-item'));
+                            //Ẩn thông báo thêm mới thành công sau 3 giây
+                            setTimeout(function(){
+                                $('.successful-item').css('display', 'none');
+                            }, 3000);
                             // Ẩn dialog
                             $('#formAddEmployee').hide();
                             // Load lại dữ liệu
                             loadData();
                             break;
                         case 400:
-                            alert(data.userMsg);
+                            // Hiện cảnh báo và nội dung cảnh báo
+                            showWarning($('#wrapperCheckData'),  $('#warningText'), data.userMsg);
+                            // alert(data.userMsg);
                             break;
                     
                         default:
