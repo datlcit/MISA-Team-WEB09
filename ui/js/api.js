@@ -1,4 +1,5 @@
-import {validateData, showHideDropdownFixed, showWarning, showHide} from "./final-ui.js";
+import {validateData, showHideDropdownFixed, showWarning, showHide, editEmployeeInfo} from "./final-ui.js";
+import { formatDateDDMMYYYY } from "./base.js";
 
 /**
  * Trả về dữ liệu từ api
@@ -14,15 +15,8 @@ export function renderDataFromApi(res){
         let employeeCode = emp.EmployeeCode; //cách 1 để lấy thuộc tính
         let employeeName = emp["EmployeeName"]; //cách 2 để lấy thuộc tính
         let genderName = emp.GenderName;
-        genderName = "" ? '' : genderName;
 
-        const dob = new Date(emp.DateOfBirth);
-       //  const dob = emp.DateOfBirth;
-        let day = dob.getDate();
-        let month = dob.getMonth() + 1;
-        let year = dob.getFullYear();
-        day = day < 10 ? `0${day}` : day;
-        month = month < 10 ? `0${month}` : month;
+        let dob = formatDateDDMMYYYY(emp.DateOfBirth);
 
         let identityNumber = emp.IdentityNumber;
         let employeePosition = emp.EmployeePosition;
@@ -31,20 +25,20 @@ export function renderDataFromApi(res){
         let bankName = emp.BankName;
         let bankBranchName = emp.BankBranchName;
 
-        var trHTML = $(`<tr class="table-row">
+        var trHTML = $(`<tr class="table-row table-row-data">
                             <td class="text-box-flex col-textbox">
                                <input class="check-employee" type="checkbox">
                             </td>
-                            <td class="table-data col-id">${employeeCode}</td>
-                            <td class="table-data col-name">${employeeName}</td>
-                            <td class="table-data col-gender">${genderName}</td>
-                            <td class="table-data-date col-date-of-birth">${`${day}/${month}/${year}`}</td>
-                            <td class="table-data col-identity-number">${identityNumber}</td>
-                            <td class="table-data col-duty">${employeePosition}</td>
-                            <td class="table-data col-unit">${departmentName}</td>
-                            <td class="table-data col-num-account">${bankAccountNumber}</td>
-                            <td class="table-data col-bank">${bankName}</td>
-                            <td class="table-data col-bank-branch">${bankBranchName}</td>
+                            <td class="table-data col-id">${employeeCode || ''}</td>
+                            <td class="table-data col-name">${employeeName || ''}</td>
+                            <td class="table-data col-gender">${genderName || ''}</td>
+                            <td class="table-data-date col-date-of-birth">${dob || ''}</td>
+                            <td class="table-data col-identity-number">${identityNumber || ''}</td>
+                            <td class="table-data col-duty">${employeePosition || ''}</td>
+                            <td class="table-data col-unit">${departmentName || ''}</td>
+                            <td class="table-data col-num-account">${bankAccountNumber || ''}</td>
+                            <td class="table-data col-bank">${bankName || ''}</td>
+                            <td class="table-data col-bank-branch">${bankBranchName || ''}</td>
                             <td class="table-data table-edit td-edit-sticky col-edit">
                                 <div class="cell-edit">
                                     <p class="edit-text">Sửa</p>
@@ -58,6 +52,8 @@ export function renderDataFromApi(res){
     }
     // Gọi tới hàm bắt sự kiện dropdown các chức năng Sửa
     showHideDropdownFixed();
+
+    editEmployeeInfo();
 }
 
 /**
@@ -137,6 +133,17 @@ export function getDataByPageNumber(pageNumber){
                 renderDataFromApi(response.Data);
             }
         });
+
+        // Gán data cho 2 nút Trước và Sau để áp dụng chuyển trang
+        $('.btn-prev').data('prev-page', pageNumber - 1);
+        $('.btn-next').data('next-page', pageNumber + 1);
+
+        if(pageNumber > 1){
+            $('.btn-prev').show();
+        } else {
+            $('.btn-prev').hide();
+        }
+
     } catch (error) {
         console.log(error);
     }

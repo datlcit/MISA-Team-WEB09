@@ -40,16 +40,16 @@ window.onload = function(){
 function initEvents(){
     try {
         //Nút thêm nhân viên
-        $('#btnAddEmployee').click(showFormEmployeeInformation);
+        $('#btnAddEmployee').click(function(){
+            $('.info-form-title p').text('Thêm mới nhân viên'); 
+            showFormEmployeeInformation();
+        })
 
         //Nút đóng form
         $('#formEmployeeClose').click(closeFormEmployee);
 
         //Nút Cancel
         $('#cancelForm').click(closeFormEmployee);
-
-        //DBclick gọi bảng Thông tin nhân viên
-        // $('.table-row').dblclick(showFormEmployeeInformation);
 
         // Nút thu gọn sidebar
         $('#iconMenu').click(hideMenu);
@@ -90,6 +90,16 @@ function initEvents(){
         $('.page-number').click(function(){
             getDataByPageNumber(choosePageNumber($(this), 'page-number'));
         });
+
+        // Nút chuyển trang Trước
+        $('.btn-prev').click(function(){
+            getDataByPageNumber($('.btn-prev').data('prev-page'));
+        })
+
+        // Nút chuyển trang Sau
+        $('.btn-next').click(function(){
+            getDataByPageNumber($('.btn-next').data('next-page'));
+        })
 
         // Nút Cất
         $('#btnSave').click(validateData);
@@ -385,4 +395,19 @@ export function showHideDropdownFixed(){
     }
 }
 
-
+/**
+ * Gọi form đổi title
+ * Author: LCDAT (26/10/2022)
+ */
+export function editEmployeeInfo(){
+    try {
+        $('.table-row-data').each(function(){
+            $(this).dblclick(function(){
+                $('.info-form-title p').text('Sửa thông tin nhân viên'); 
+                showFormEmployeeInformation();
+            })
+        })  
+    } catch (error) {
+        console.log(error);
+    } 
+}
