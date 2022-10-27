@@ -265,6 +265,7 @@ function chooseOption(item, dataName, choice){
  * @param {element} item class chung các số trang
  * @param {dataset} data tên data chung của các số trang
  * @returns trả về kết quả validate
+ * Author: LCDAT (25/10/2022)
  */
 function choosePageNumber(item, data){
     try {

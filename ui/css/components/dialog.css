@@ -74,6 +74,10 @@ label span{
 .m-input-fullname, .m-input-identity-number, .m-input-gender{
     width: calc(60% - 8px);
 }
+.m-input-gender{
+    margin-top: 8px;
+    height: 36px;
+}
 .m-input-date-range{
     width: 170px;
 }
