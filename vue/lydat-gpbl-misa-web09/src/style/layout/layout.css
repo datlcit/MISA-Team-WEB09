@@ -1,0 +1,24 @@
+@import url(header.css);
+@import url(sidebar.css);
+@import url(content.css);
+
+/* --------------------------------- */
+/* CHIA LAYOUT */
+.sidebar{
+    width: 200px;
+    height: 100%;
+}
+.header-and-main{
+    height: 100%;
+    width: calc(100% - 200px);
+}
+.header{
+    height: 56px;
+    width: 100%;
+    background-color: #fff;
+}
+.main{
+    width: 100%;
+    height: calc(100% - 56px);
+    background-color: #EEEFF1;
+}

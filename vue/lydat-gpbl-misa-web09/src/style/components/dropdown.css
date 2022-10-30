@@ -1,0 +1,134 @@
+/* Thuộc tính Dropdown chung theo STL */
+.m-dropdown{
+  	width: auto;
+	height: 36px;
+  	padding: 0 12px;
+  	border-radius: 4px;
+	margin: 0;
+	font-size: 14px;
+	line-height: 18px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+/* Chỉnh kích cỡ các khung lựa chọn trong dropdown theo STL */
+.m-option{
+	height: 36px;
+	line-height: 18px;
+}
+
+/* Chỉnh kích cỡ text trong các khung lựa chọn */
+.m-option p{
+	font-size: 14px;
+	font-weight: 500;
+	padding: 8px;
+	white-space: nowrap;
+}
+
+/* Tương tác với từng khung lựa chọn */
+.m-option p:hover{
+	background-color: rgba(80,184,60,0.1);
+	border-radius: 4px;
+}
+
+/* Thuộc tính chung của khung lựa chọn dropdown và dropup theo STL */
+.wrap-up-down-option{
+	max-height: 200px;
+	position: absolute;
+	background-color: #fff;
+	border-radius: 4px;
+	z-index: 3;
+	overflow-y: scroll;
+    border: 1px solid #000;
+	width: 100%;
+	left: 0;
+
+	/* ẨN CHO ĐỠ VƯỚNG ------------------------*/
+	/* display: none; */
+}
+
+/* ---------------------------------------------------------------------- */
+
+/* Hai nút dropdown trên header và dropup dưới footer và dropdown ở trang thông tin nhân viên*/
+.m-dropdown-list-company, .m-dropup-range-item{
+	border: 1px solid transparent;
+	min-width: 300px;
+	position: relative;
+}
+.m-dropdown-list-company:hover, .m-dropup-range-item:hover{
+    border: 1px solid #E6E6E6;
+    background-color: #F6F6F6;
+	cursor: pointer;
+}
+.m-dropdown-list-company:active, .m-dropup-range-item:active{
+    border: 1px solid #306F24;
+}
+.m-dropdown-list-company::placeholder, .m-dropup-range-item::placeholder{
+    padding-right: 8px;
+}
+.m-dropdown-list-company p, .m-dropup-select-range-item p{
+	padding-right: 24px;
+}
+
+/* Dropdown trên HEADER */
+.m-wrap-dropdown-option{
+	top: calc(100% + 1px);
+	box-shadow: 0px 10px 6px -6px rgba(23,27,42,0.24);
+	padding: 8px;
+	border: 1px solid #000;
+
+	display: none;
+}
+
+/* Thiết lập chiều cao và rộng và đặt vị trí mũi tên theo STL  */
+.iconfont-div{
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	right: 8px;
+	top: 8px;
+}
+
+/* Chỉnh kích thước cho mũi tên */
+.icofont-curved-down{
+	font-size: 15px;
+}
+
+/* CSS cho khung dropup dưới chân trang */
+.m-dropup-range-item{
+    min-width: 220px;
+    border: 1px solid #E6E6E6;
+}
+
+.m-wrap-dropup-option{
+	bottom: calc(100% + 1px);
+	padding: 8px;
+
+    display: none;
+}
+.m-wrap-dropup-option{
+    border: 1px solid #306F24;
+}
+
+/* Dropdown các chức năng nút Sửa */
+.edit-list{
+    display: block;
+    overflow: hidden;
+    width: max-content;
+    border: 2px solid #EEEEEE;
+    top: calc(100% + 3px);
+    left: -100px;
+
+    /* Ân bớt ds chức năng */
+    display: none;
+}
+
+.edit-list .m-option:hover{
+    background-color: #E0E0E0;
+}
+
+.edit-list .m-option:hover p{
+    color: #06da10;
+}

@@ -1,0 +1,53 @@
+
+/* Employee CSS */
+
+/* Tiêu đề */
+.title-table-and-add-btn{
+    padding: 24px 24px;
+}
+.title-table h1{
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Căn lề và màu nền */
+.toolbar-and-table{
+    margin: 0 24px;
+    background-color: #fff;
+    height: calc(100% - 96px);
+}
+
+.toolbar-and-table-padding{
+    padding: 12px;
+    padding-bottom: 0;
+    height: 100%;
+}
+
+/* input search trên MAIN */
+.m-search{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    margin-right: 12px;
+}
+
+/* input tìm kiếm */
+.m-search input{
+    padding-right: 36px;
+    width: 260px;
+}
+
+/* icon tìm kiếm */
+.m-icon-search{
+    background-image: url(../../assets/img/Sprites.64af8f61.svg);
+    background-position: -88px -32px;
+    right: 8px;
+    position: absolute;
+}
+
+/* Icon refresh */
+.m-icon-refresh{
+    background-image: url(../../assets/img/Sprites.64af8f61.svg);
+    background-position: -1097px -87px;;
+}

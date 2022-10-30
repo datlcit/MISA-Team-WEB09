@@ -1,0 +1,95 @@
+/* Thuộc tính Button chung theo STL */
+.m-btn{
+    min-width: 80px;
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    line-height: 18px;
+}
+
+/* Các nút nền xanh lá */
+.m-btn-bg-green{
+    background-color: #409330;
+    color: #fff;
+}
+
+.m-btn-bg-green:hover{
+    background-color: #73C663;
+}
+
+.m-btn-bg-green:focus{
+    background-color: #306F24;
+}
+
+/* Các nút nền trắng*/
+.m-btn-bg-white{
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #8d9096;
+}
+
+.m-btn-bg-white:hover{
+    background-color: #eee;
+}
+
+.m-btn-bg-white:focus{
+    background-color: #BDBDBD;
+}
+
+/* .m-btn-menu{
+    background-image: url(../../assets/img/Sprites.64af8f61.svg);
+    background-position: -843px -30px;
+    cursor: pointer;
+} */
+
+.m-icon:hover{
+    cursor: pointer;
+}
+.m-icon-20{
+    width: 20px;
+    height: 20px;
+}
+.m-icon-24{
+    width: 24px;
+    height: 24px;
+}
+
+.m-icon-16{
+    width: 16px;
+    height: 16px;
+}
+
+.m-icon-search{
+    background-image: url(../../assets/img/Sprites.64af8f61.svg);
+    background-position: -88px -32px;
+    right: 8px;
+    position: absolute;
+}
+
+/* .m-btn-notification{
+    background-image: url(../../assets/img/Sprites.64af8f61.svg);
+    background-position: -787px -30px;
+    cursor: pointer;
+    margin-right: 24px;
+} */
+
+/* .m-btn-refresh{
+    background-image: url(../../assets/img/Sprites.64af8f61.svg);
+    background-position: -1097px -87px;;
+    cursor: pointer;
+} */
+
+/* sidebar */
+/* .m-btn-grid{
+    background: url(../../assets/img/Sprites.64af8f61.svg) no-repeat -428px -92px;
+    margin: 16px;
+    cursor: pointer;
+}
+.m-logo img{
+    height: 32px;
+    cursor: pointer;
+} */

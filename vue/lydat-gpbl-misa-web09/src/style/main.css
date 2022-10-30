@@ -1,0 +1,101 @@
+@import url(../style/components/button.css);
+@import url(../style/components/textfield.css);
+@import url(../style/components/dropdown.css);
+@import url(../style/components/dialog.css);
+@import url(../style/components/combobox.css);
+@import url(../lib/icofont/icofont/icofont.min.css);
+@import url(../style/layout/layout.css);
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    text-transform: none;
+    text-decoration: none;
+}
+body{
+    font-family: NotosansRegular;
+    font-size: 14px;
+}
+
+@font-face {
+    font-family: NotosansRegular;
+    src: url(../assets/fonts/notosans-regular.2cb88a13.woff2);
+}
+
+/* Custom thẻ chung */
+p{
+    margin: 0;
+}
+
+/* Các class thường dùng */
+.text-right{
+    text-align: right;
+}
+.text-left{
+    text-align: left;
+}
+.primary-text{
+    color: #212121;
+}
+.w-40{
+    width: 40%;
+}
+.w-100{
+    width: 100%;
+}
+.margin-left-8{
+    margin-left: 8px;
+}
+.margin-left-24{
+    margin-left: 24px;
+}
+.margin-left-32{
+    margin-left: 32px;
+}
+.margin-bottom-8{
+    margin-bottom: 8px;
+}
+
+.wh-34{
+    width: 34px;
+    height: 34px;
+}
+
+.row{
+    display: flex;
+}
+/* .m-flex{
+    display: flex;
+    flex-wrap: wrap;
+} */
+.row-jus-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.row-jus-between{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.row-jus-start{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.row-jus-end{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.cs-pointer:hover{
+    cursor: pointer;
+}
+.wrapper{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}

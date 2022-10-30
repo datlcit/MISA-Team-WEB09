@@ -1,0 +1,52 @@
+/* Pagination */
+.total-record-and-pagination{
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+}
+.btn-page{
+    padding: 10px 24px;
+}
+
+.total-record span{
+    font-weight: 700;
+}
+
+.btn-prev, .btn-next{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 24px;
+}
+
+.btn-prev{
+    display: none;
+}
+
+.page-number{
+    width: 20px;
+    height: 20px;
+    border: 1px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.page-number:hover{
+    border: 1px solid #BDBDBD;
+
+}
+
+/* .page-number:active{
+    border: 1px solid #BDBDBD;
+
+} */
+
+.page-number:hover a{
+    font-weight: 700;
+}
+.three-dots{
+    margin: 0 12px;
+}

@@ -1,0 +1,109 @@
+/* Thuộc tính Input chung theo STL */
+.m-input{
+    height: 36px;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    padding: 0px 12px;
+    line-height: 18px;
+    outline: none;
+}
+.m-input::placeholder{
+    font-size: 14px;
+    color: #9E9E9E;
+    font-style: italic;
+    font-style: normal;
+}
+
+.m-input:hover{
+	background-color: #F6F6F6;
+  	cursor: pointer;
+}
+.m-input:focus{
+	border: 1px solid #306F24;
+  	outline: none;
+}
+
+/* input search trên MAIN */
+/* .m-search{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    margin-right: 12px;
+}
+
+.m-input-searchbar{
+    padding-right: 36px;
+    width: 260px;
+} */
+
+/* Thông tin nhân viên */
+.m-information{
+    flex-direction: column;
+    position: relative;
+}
+
+label{
+    color:#1F1F1F;
+    font-size: 14px;
+    font-weight: 500;
+}
+.m-input-information{
+    margin-top: 8px;
+    margin-bottom: 24px;
+}
+.m-input-date .m-input-information::placeholder{
+    font-style: normal;
+}
+input[type="radio"] {
+    width: 20px;
+    height: 20px;
+}
+
+/* Checkbox trong bảng TABLE */
+
+input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+}
+.text-box-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 48px;
+    position: sticky;
+    left: 0;
+    background-color: #fff;
+}
+
+thead .text-box-flex{
+    background-color: #eeeeee;
+}
+
+/*---------------------------------
+
+/* ERROR INPUT */
+
+.err-input{
+    border-color: #E60000;
+}
+.err-text{
+    margin-left: 5px;
+    /* margin-bottom: 24px; */
+    font-size: 12px;
+    color: #E61D1D;
+    position: absolute;
+    top: 71px;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    display: none;
+}
+
+/* Xét điều kiện để form hiển thị báo lỗi đúng input */
+/* input có một class là m-input và có attribute là required và khi có class là input-error thì áp dụng cho phần tử có class err-text ngay phía sau*/
+input.m-input[required].err-input + .err-text{
+    display: block;
+}
