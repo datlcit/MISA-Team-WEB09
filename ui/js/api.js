@@ -238,6 +238,7 @@ export function getDataByPageNumber(pageNumber){
                 })
                 .then(res => {
                     statusCode = res.status;
+                    console.log(statusCode)
                     return res.json();
                 })
                 .then(data => {

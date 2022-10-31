@@ -1,4 +1,4 @@
-import {displayNone, displayBlock} from './common.js'
+import {display} from './common.js'
 
 /**
  * Hiển thị form thông tin
@@ -24,9 +24,9 @@ import {displayNone, displayBlock} from './common.js'
             document.getElementById('headerAndMain').style.position = "absolute";
             document.getElementById('headerAndMain').style.left = "48px"
             document.getElementById('headerAndMain').style.width = 'calc(100% - 48px)';
-            displayNone('iconGridLink');
-            displayNone('iconMenu');
-            displayBlock('iconMenuSidebarLink');
+            display('iconGridLink', 'none');
+            display('iconMenu', 'none');
+            display('iconMenuSidebarLink', 'block');
         } 
     } catch (error) {
         console.log(error);
@@ -43,11 +43,26 @@ export function showMenu(){
             document.getElementById('wrapper').style.position = 'static';
             document.getElementById('headerAndMain').style.position = 'static';
             document.getElementById('headerAndMain').style.width = 'calc(100% - 200px)';
-            displayNone('iconMenuSidebarLink');
-            displayBlock('iconGridLink');
-            displayBlock('iconMenu');
+            display('iconMenuSidebarLink', 'none');
+            display('iconGridLink', 'block');
+            display('iconMenu', 'block');
         }    
     } catch (error) {
         console.log(error);
     }
 }
+
+/**
+ * Hiện các popup cảnh báo
+ * @param {element} item Đối tượng cần hiện
+ * @param {element} itemText Đối tượng chứa nội dung cảnh báo
+ * @param {string} text Nội dung cảnh báo
+ */
+//  export function showWarning(item, itemText, text){
+//     try {
+//         document.getElementById(item).style('display', 'flex');
+//         $(itemText).text(text);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }

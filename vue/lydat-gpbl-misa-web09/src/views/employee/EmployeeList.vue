@@ -33,8 +33,6 @@
 
 <script>
 
-
-
 import EmployeeDetail from './EmployeeDetail.vue';
 
 import EmployeeTable from './EmployeeTable.vue'

@@ -6,9 +6,9 @@
  export function showHide(item){
     try {
         if(document.getElementById(item).style.display == "block"){
-            document.getElementById(item).style.display = 'none';
+            display(item, 'none');
         } else {
-            document.getElementById(item).style.display = "block";
+            display(item, 'block');
         }
     } catch (error) {
         console.log(error);
@@ -16,24 +16,27 @@
 }
 
 /**
- * Ẩn bất kì
+ * Kiểu hiển thị bất kì
  * Author: LCDAT (19/10/2022)
  */
- export function displayNone(id){
+ export function display(id, type){
     try {
-        document.getElementById(id).style.display = "none";
+        document.getElementById(id).style.display = type;
     } catch (error) {
         console.log(error);
     }
 }
 
 /**
- * display block bất kì
- * Author: LCDAT (19/10/2022)
+ * Hiện các popup cảnh báo
+ * @param {element} item Đối tượng cần hiện
+ * @param {element} itemText Đối tượng chứa nội dung cảnh báo
+ * @param {string} text Nội dung cảnh báo
  */
- export function displayBlock(id){
+ export function showWarning(item, itemText, text){
     try {
-        document.getElementById(id).style.display = "block";
+        display(item, 'flex');
+        document.getElementById(itemText).innerHTML = text;
     } catch (error) {
         console.log(error);
     }

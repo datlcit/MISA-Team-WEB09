@@ -33,6 +33,7 @@ label span{
 .icofont-close-line{
     right: 16px;
 }
+
 .info-form-title p{
     font-weight: 700;
     font-size: 24px;
@@ -69,6 +70,10 @@ label span{
 }
 .personal-info-right{
     padding-left: 12px;
+}
+
+.isInvalid{
+    border: 1px solid red;
 }
 
 .m-input-fullname, .m-input-identity-number, .m-input-gender{
@@ -171,7 +176,7 @@ label span{
  }
 
  /* Popup thành công */  /* Popup thành công */  /* Popup thành công */  /* Popup thành công */ /* Popup thành công */  /* Popup thành công */
-.successful-item{
+#successfulItem{
     position: fixed;
     border: 1px solid #000000;
     background-color: #fff;
@@ -179,6 +184,7 @@ label span{
     bottom: 50px;
     border-radius: 4px;
     background-color: #eee;
+    z-index: 100;
 
     display: none;
 }
