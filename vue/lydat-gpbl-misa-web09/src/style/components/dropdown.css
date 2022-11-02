@@ -1,6 +1,6 @@
 /* Thuộc tính Dropdown chung theo STL */
 .m-dropdown{
-  	width: auto;
+  	width: max-content;
 	height: 36px;
   	padding: 0 12px;
   	border-radius: 4px;
@@ -42,7 +42,6 @@
 	z-index: 3;
 	overflow-y: scroll;
     border: 1px solid #000;
-	width: 100%;
 	left: 0;
 
 	/* ẨN CHO ĐỠ VƯỚNG ------------------------*/
@@ -113,22 +112,21 @@
 }
 
 /* Dropdown các chức năng nút Sửa */
-.edit-list{
+#editList{
     display: block;
     overflow: hidden;
     width: max-content;
     border: 2px solid #EEEEEE;
-    top: calc(100% + 3px);
-    left: -100px;
+	z-index: 5;
 
     /* Ân bớt ds chức năng */
     display: none;
 }
 
-.edit-list .m-option:hover{
+#editList .m-option:hover{
     background-color: #E0E0E0;
 }
 
-.edit-list .m-option:hover p{
+#editList .m-option:hover p{
     color: #06da10;
 }

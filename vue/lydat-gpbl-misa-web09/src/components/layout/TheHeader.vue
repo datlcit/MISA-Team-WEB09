@@ -5,15 +5,12 @@
                 <div id="iconMenu" class="m-icon-24 cs-pointer" @click="callHideMenu"></div>
                 <div class="m-company-dropdown">
                     <div id="mDropdowmListCompany" class="m-dropdown m-dropdown-list-company" @click="callShowHide('mDropdownHeader')">
-                        <p id="companyName">Công ty TNHH SẢN XUẤT - THƯƠNG MẠI - THƯƠNG MẠI QUI PHÚC</p>
+                        <p id="companyName">{{currentCompany}}</p>
                         <div class="iconfont-div"><i class="icofont-curved-down"></i></div>
                         <div id="mDropdownHeader" class="wrap-up-down-option m-wrap-dropdown-option">
-                            <div data-name="Công ty TNHH SẢN XUẤT - THƯƠNG MẠI - THƯƠNG MẠI QUI PHÚC" class="m-option option-companies"><p>Công ty TNHH SẢN XUẤT - THƯƠNG MẠI - THƯƠNG MẠI QUI PHÚC</p></div>
-                            <div data-name="Công ty B" class="m-option option-companies"><p>Công ty B</p></div>
-                            <div data-name="Công ty C" class="m-option option-companies"><p>Công ty C</p></div>
-                            <div data-name="Công ty D" class="m-option option-companies"><p>Công ty D</p></div>
-                            <div data-name="Công ty E" class="m-option option-companies"><p>Công ty E</p></div>
-                            <div data-name="Công ty F" class="m-option option-companies"><p>Công ty F</p></div>
+                            <div @click="chooseCompany(com.companyName)" class="m-option option-companies" v-for="(com, index) in companies" :key="index">
+                                <p>{{com.companyName}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -46,10 +43,21 @@ export default {
         callHideMenu(){
             return hideMenu();
         },
+        chooseCompany(name){
+            this.currentCompany = name;
+        }
     },
     data() {
         return {
-            
+            companies: [
+                {companyName: 'Công ty TNHH SẢN XUẤT - THƯƠNG MẠI - THƯƠNG MẠI QUI PHÚC'},
+                {companyName: 'Công ty A'},
+                {companyName: 'Công ty B'},
+                {companyName: 'Công ty C'},
+                {companyName: 'Công ty D'},
+                {companyName: 'Công ty E'},
+            ],
+            currentCompany: 'Công ty TNHH SẢN XUẤT - THƯƠNG MẠI - THƯƠNG MẠI QUI PHÚC',
         }
     },
 }

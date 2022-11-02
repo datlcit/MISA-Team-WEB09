@@ -99,7 +99,7 @@ thead .text-box-flex{
     text-overflow: ellipsis;
     white-space: nowrap;
 
-    /* display: none; */
+    display: none;
 }
 
 /* Xét điều kiện để form hiển thị báo lỗi đúng input */

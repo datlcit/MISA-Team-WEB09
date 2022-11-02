@@ -24,13 +24,13 @@
                         <div class="personal-info-left">
                             <div class="row m-information m-input-id w-40">
                                 <label>Mã <span>*</span></label>
-                                <input tabindex="1" class="required m-input m-input-information" type="text" name="" id="txtEmployeeCode" placeholder="VD: NV01" v-model="employee.EmployeeCode" :class="{'isInvalid': errors.EmployeeCode}">
-                                <span v-if="errors.EmployeeCode" class="err-text" title="Mã nhân viên không được phép để trống">Mã nhân viên không được phép để trống</span>
+                                <input type="text" tabindex="1" class="required m-input m-input-information" name="" id="txtEmployeeCode" placeholder="VD: NV01" v-model="employee.EmployeeCode" :class="{'isInvalid': errors.EmployeeCode}">
+                                <span id="errorTextId" class="err-text" title="Mã nhân viên không được phép để trống">Mã nhân viên không được phép để trống</span>
                             </div>
                             <div class="row m-information m-input-fullname margin-left-8">
                                 <label>Tên <span>*</span></label>
                                 <input tabindex="2" class="required m-input m-input-information" type="text" name="" id="txtFullName" placeholder="VD: Lý Đạt" v-model="employee.EmployeeName" :class="{'isInvalid': errors.EmployeeName}">
-                                <span v-if="errors.EmployeeName" class="err-text" title="Tên nhân viên không được phép để trống">Tên khách hàng không được phép để trống</span>
+                                <span id="errorTextFullName" class="err-text" title="Tên nhân viên không được phép để trống">Tên khách hàng không được phép để trống</span>
                             </div>
                             <div class="m-flex m-information m-input-unit w-100">
                                 <label>Đơn vị <span>*</span></label>
@@ -98,7 +98,8 @@
                             </div>
                             <div class="row m-information m-input-email margin-left-8">
                                 <label>Email</label>
-                                <input tabindex="15" class="m-input m-input-information" type="text" name="" id="txtEmail" placeholder="VD: nguyenvana@gmail.com" v-model="employee.Email">
+                                <input tabindex="15" class="m-input m-input-information" type="text" name="" id="txtEmail" placeholder="VD: nguyenvana@gmail.com" v-model="employee.Email" :class="{'isInvalid': errors.Email}">
+                                <span id="errorTextEmail" class="err-text" title="Email không đúng định dạng!">Email không đúng định dạng!</span>
                             </div>
                         </div>
                         <div class="bank-info-wrapper">
@@ -118,7 +119,7 @@
                             </div>
                         </div>
                         <div class="row-jus-between info-btn-list">
-                            <button tabindex="21" id="cancelForm" class="m-btn m-btn-bg-white" type="reset">Hủy</button>
+                            <button tabindex="21" id="cancelForm" class="m-btn m-btn-bg-white" @click="btnClose()">Hủy</button>
                             <div class="row get-info-btn">
                                 <button @click="saveClicked = true" id="btnSave" tabindex="19" class="m-btn m-btn-bg-white get-btn" type="submit">Cất</button>
                                 <button id="btnSaveAndAdd" tabindex="20" class="m-btn m-btn-bg-green" type="submit">Cất và Thêm</button>
@@ -130,13 +131,17 @@
         </div>
     </div>
     <!-- Popup không được để trống -->
-   <warning-required :textError="this.errors.EmployeeCode"></warning-required>
+   <warning-required :textError="this.errorsPopuptText"></warning-required>
    <!-- Popup trùng mã nhân viên -->
-    <warning-check-data></warning-check-data>
+    <warning-check-data :checkError = "this.errorsPopuptText"></warning-check-data>
     <!-- Thêm mới thành công -->
-    <dialog-add-successful></dialog-add-successful>
+    <dialog-add-successful :successText="'Thêm mới thành công!'"></dialog-add-successful>
 </template>
 <script>
+
+// import axios from 'axios';
+
+import axios from 'axios';
 
 import {display} from '../../script/common.js'
 import {API} from '../../script/config.js'
@@ -149,42 +154,88 @@ export default {
     components: {
         DialogAddSuccessful, WarningRequired, WarningCheckData
     },
-    props: [],
+    props: ["titleForm"],
     methods: {
+
+        /**
+         * Lấy mã nhân viên mới
+         * LCDAT(02/11/2022)
+         */
+        getNewEmployeeCode(){
+            axios.get("https://amis.manhnv.net/api/v1/Employees/NewEmployeeCode").then((res) =>{
+                this.employee.EmployeeCode = res.data;
+            })
+        },
+
         //Nút đóng và hủy
         btnClose(){
             display('formAddEmployee', 'none');
         },
 
+        /**
+         * Validate dữ liệu
+         * LCDAT(31/10/2022)
+         */
         validate(){
-            let isValid = true;
-            this.errors = {
-                EmployeeCode: '',
-                EmployeeName: '',
-                DepartmentId: ''
+            try {
+                let isValid = true;
+            
+                //Check nhập tên
+                if(!this.employee.EmployeeName){
+                    this.errors.EmployeeName = true;
+                    this.errorsPopuptText = "Tên nhân viên không được phép để trống";
+                    display('wrapperRequired', 'flex');
+                    display('errorTextFullName', 'block');
+                    isValid = false;
+                } else {
+                    this.errors.EmployeeName = '';
+                    display('errorTextFullName', 'none')
+                }
+
+                //CHeck nhập mã
+                if(!this.employee.EmployeeCode){
+                    this.errors.EmployeeCode = true;
+                    this.errorsPopuptText = "Mã nhân viên không được phép để trống";
+                    display('wrapperRequired', 'flex');
+                    display('errorTextId', 'block');
+                    isValid = false;
+                } else {
+                    this.errors.EmployeeCode = '';
+                    display('errorTextId', 'none')
+                }
+
+                //Check nhập email
+                // let email = document.getElementById('txtEmail').value;
+                // let regexEmail = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                // console.log(this.errors.Email);
+                // console.log(email.value);
+                // if(!regexEmail.test(email.value)){
+                //     // this.errors.Email = true;
+                //     // display('errorTextEmail', 'block');
+                //     // email.focus;
+                //     isValid = false;
+                //     alert("Sai")
+                // } else {
+                //     alert('Đúng')
+                //     // this.errors.Email = '';
+                //     // display('errorTextEmail', 'none')
+                // }
+                // console.log(isValid);
+                return isValid;
+            } catch (error) {
+                console.log(error);
             }
-            if(!this.employee.EmployeeCode){
-                this.errors.EmployeeCode = "Mã nhân viên không được phép để trống";
-                display('wrapperRequired', 'flex');
-                // showWarning('wrapperRequired', '.warning-text p', this.errors.EmployeeCode);
-                isValid = false;
-            }
-            if(!this.employee.EmployeeName){
-                this.errors.EmployeeName = "Tên nhân viên không được phép để trống";
-                display('wrapperRequired', 'flex');
-                isValid = false;
-            }
-            return isValid;
         },
 
         saveAndAdd(){
+            
             try {
                 let statusCode = null;
                 if(this.validate()){
                     this.$axiosRequest.post(`${API.EMPLOYEE}`, this.employee).then(response => {
                     console.log(response);
                     statusCode = response.status;
-                    console.log(this.statusCode);
+                    console.log(statusCode);
                     switch (statusCode) {
                         case 201:
                             // Hiện thông báo đã thêm mới thành công
@@ -198,35 +249,40 @@ export default {
                                 display('formAddEmployee', 'none');
                             }
                             this.saveClicked = false;
+                            this.$emit("employeeAdded", this.employee);
                             // Load lại dữ liệu
                             // loadData();
-                            break;
-                        case 400:
-                            console.log(statusCode)
-                            // Hiện cảnh báo và nội dung cảnh báo
-                            // showWarning('wrapperCheckData', '.warning-text p', `Mã nhân viên ${this.employee.EmployeeName} đã tồn tại trong hệ <br> thống, vui lòng kiểm tra lại`);
-                            // alert(data.userMsg);
                             break;
                     
                         default:
                             //Toast message
                             break;
                     }
+                }).catch(err => {
+                    if(err.response.status === 400){
+                       this.errorsPopuptText = err.response.data.devMsg;
+                       display('wrapperCheckData', 'flex');
+                    }
                 });
             }
             } catch (error) {
+                console.log("error",error);
                 console.log(error);
             }
-        }
+        },
+    },
+    created() {
+        this.getNewEmployeeCode();
     },
     data() {
         return {
             saveClicked: false,
-            errors: {
+            errors:{
                 EmployeeCode: '',
                 EmployeeName: '',
-                DepartmentId: ''
+                Email:''
             },
+            errorsPopuptText: '',
             employee:{
                 EmployeeCode: '',
                 EmployeeName: '',
@@ -244,7 +300,7 @@ export default {
                 BankAccountNumber: '',
                 BankName: '',
                 BankBranchName: ''
-            }
+            },
         }
     },
 }

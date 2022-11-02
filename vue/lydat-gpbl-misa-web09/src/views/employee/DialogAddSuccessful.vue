@@ -2,7 +2,7 @@
      <!-- Thêm mới thành công -->
     <div id="successfulItem" class="successful-item">
         <div class="successful-content">
-            <p>Thêm mới thành công!</p>
+            <p>{{successText}}</p>
             <i class="icofont-check-circled"></i>
         </div>
     </div>
@@ -10,7 +10,7 @@
 <script>
 export default {
     name: 'DialogAddSuccessful',
-    props: [],
+    props: ["successText"],
     methods: {
         
     },

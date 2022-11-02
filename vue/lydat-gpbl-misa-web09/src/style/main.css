@@ -94,6 +94,12 @@ p{
 .cs-pointer:hover{
     cursor: pointer;
 }
+/* .display-none{
+    display: none;
+}
+.display-block{
+    display: block;
+} */
 .wrapper{
     display: flex;
     height: 100vh;

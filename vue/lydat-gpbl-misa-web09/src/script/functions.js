@@ -1,4 +1,4 @@
-import {display} from './common.js'
+import {display, showHide} from './common.js'
 
 /**
  * Hiển thị form thông tin
@@ -53,16 +53,23 @@ export function showMenu(){
 }
 
 /**
- * Hiện các popup cảnh báo
- * @param {element} item Đối tượng cần hiện
- * @param {element} itemText Đối tượng chứa nội dung cảnh báo
- * @param {string} text Nội dung cảnh báo
+ * Ẩn hiện chức năng nút Sửa
+ * Author: LCDAT (26/10/2022)
  */
-//  export function showWarning(item, itemText, text){
-//     try {
-//         document.getElementById(item).style('display', 'flex');
-//         $(itemText).text(text);
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
+ export function showHideDropdownFixed(){
+    try {
+        let editList = document.getElementById('editList');
+        let editBtn = document.getElementsByClassName('wrap-btn-edit');
+        for(let i=0;i<editBtn.length;i++){
+        editBtn[i].onclick = function(){
+            let coor =  editBtn[i].getBoundingClientRect();
+            showHide('editList');
+            editList.style.top = `${coor.y + 20}px`;
+            editList.style.left = `${coor.x - 90}px`;
+            editList.style.position = "fixed";
+        }
+       }
+    } catch (error) {
+        console.log(error);
+    }
+}
