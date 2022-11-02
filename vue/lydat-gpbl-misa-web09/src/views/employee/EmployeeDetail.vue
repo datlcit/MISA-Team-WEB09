@@ -35,16 +35,14 @@
                             <div class="m-flex m-information m-input-unit w-100">
                                 <label>Đơn vị <span>*</span></label>
                                 <div class="combobox-unit row-jus-center">
-                                    <input id="txtUnit" tabindex="3" class="m-input m-input-information m-input-unit" type="text" placeholder="VD: Phòng hành chính">
-                                    <div id="comboboxUnitBtn" class="row-jus-center wh-34 combobox-unit__btn cs-pointer"><i class="icofont-curved-down"></i></div>
+                                    <input :value="currentDepartment" id="txtUnit" tabindex="3" class="m-input m-input-information m-input-unit" type="text" placeholder="VD: Phòng hành chính" :class="{'isInvalid': errors.Department}">
+                                    <div @click="callShowHide('comboboxUnitItems')" id="comboboxUnitBtn" class="row-jus-center wh-34 combobox-unit__btn cs-pointer"><i class="icofont-curved-down"></i></div>
                                     <div id="comboboxUnitItems" class="wrap-up-down-option m-wrap-dropdown-option combobox-unit_items">
-                                        <div data-name="Phòng tài chính" class="m-option option-departments cs-pointer"><p>Phòng tài chính</p></div>
-                                        <div data-name="Phòng kế toán" class="m-option option-departments cs-pointer"><p>Phòng kế toán</p></div>
-                                        <div data-name="Phòng kinh doanh" class="m-option option-departments cs-pointer"><p>Phòng kinh doanh</p></div>
-                                        <div data-name="Phòng hành chính" class="m-option option-departments cs-pointer"><p>Phòng hành chính</p></div>
-                                        <div data-name="Phòng IT" class="m-option option-departments cs-pointer"><p>Phòng IT</p></div>
-                                        <div data-name="Phòng marketing" class="m-option option-departments cs-pointer"><p>Phòng marketing</p></div>
+                                        <div @click="chooseDepartment(dep.DepartmentName, dep.DepartmentId)" class="m-option option-departments cs-pointer" v-for="(dep, index) in departments" :key="index">
+                                            <p>{{dep.DepartmentName}}</p>
+                                        </div>
                                     </div>
+                                    <span id="errorTextDepartment" class="err-text" title="Đơn vị không được phép để trống">Đơn vị không được phép để trống</span>
                                 </div>
                             </div>
                             <div class="row m-information m-input-duty w-100">
@@ -143,7 +141,7 @@
 
 import axios from 'axios';
 
-import {display} from '../../script/common.js'
+import {display, showHide} from '../../script/common.js'
 import {API} from '../../script/config.js'
 
 import WarningCheckData from '../employee/WarningCheckData.vue'
@@ -167,9 +165,16 @@ export default {
             })
         },
 
-        //Nút đóng và hủy
+        /**
+         * Nút đóng và hủy trong form
+         * LCDAT(02/11/2022)
+         */
         btnClose(){
-            display('formAddEmployee', 'none');
+            try {
+                display('formAddEmployee', 'none');
+            } catch (error) {
+                console.log(error);
+            }
         },
 
         /**
@@ -179,6 +184,18 @@ export default {
         validate(){
             try {
                 let isValid = true;
+
+                //Check đơn vị
+                if(!this.employee.DepartmentId){
+                    this.errors.Department = true;
+                    this.errorsPopuptText = "Đơn vị không được phép để trống";
+                    display('wrapperRequired', 'flex');
+                    display('errorTextDepartment', 'block');
+                    isValid = false;
+                } else {
+                    this.errors.Department = '';
+                    display('errorTextDepartment', 'none')
+                }
             
                 //Check nhập tên
                 if(!this.employee.EmployeeName){
@@ -227,8 +244,20 @@ export default {
             }
         },
 
+        /**
+         * Gọi hàm ẩn hiện
+         * @param {id} item Truyền id của item vào
+         * LCDAT(02/11/2022)
+         */
+        callShowHide(item){
+            return showHide(item);
+        },
+
+        /**
+         * Thêm nhân viên mới
+         * LCDAT(02/11/2022)
+         */
         saveAndAdd(){
-            
             try {
                 let statusCode = null;
                 if(this.validate()){
@@ -270,9 +299,38 @@ export default {
                 console.log(error);
             }
         },
+
+        /**
+         * Lấy danh sách department từ api
+         * LCDAT(01/11/2022)
+         */
+        getDepartment(){
+            try {
+                axios.get("https://amis.manhnv.net/api/v1/Departments").then((res) => {
+                    this.departments = res.data;
+                })
+            } catch (error) {
+                console.log(error);
+            }
+        },
+
+        /**
+         * Chọn department
+         * @param {DepartmentName} depName tên phòng ban truyền vào
+         * @param {DepartmentId} depId id phòng ban truyền vào
+         * LCDAT(01/11/2022)
+         */
+        chooseDepartment(depName, depId){
+            this.currentDepartment = depName;
+            this.employee.DepartmentId = depId;
+            this.employee.DepartmentName = depName;
+            display('comboboxUnitItems', 'none')
+        }
+
     },
     created() {
         this.getNewEmployeeCode();
+        this.getDepartment();
     },
     data() {
         return {
@@ -280,13 +338,14 @@ export default {
             errors:{
                 EmployeeCode: '',
                 EmployeeName: '',
+                Department: '',
                 Email:''
             },
             errorsPopuptText: '',
             employee:{
                 EmployeeCode: '',
                 EmployeeName: '',
-                DepartmentId: '4e272fc4-7875-78d6-7d32-6a1673ffca7c',
+                DepartmentId: '',
                 PositionName: '',
                 DateOfBirth: '',
                 Gender: 0,
@@ -301,10 +360,17 @@ export default {
                 BankName: '',
                 BankBranchName: ''
             },
+            departments: [],
+            currentDepartment: '',
+            vIfForm: true,
         }
     },
 }
 </script>
 <style scoped>
 @import url(../../style/components/dialog.css);
+#errorTextDepartment{
+    position: absolute;
+    top: 50px;
+}
 </style>

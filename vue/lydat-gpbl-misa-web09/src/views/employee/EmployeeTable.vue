@@ -8,7 +8,7 @@
           <thead>
             <tr class="table-row table-row-titles">
               <th class="text-box-flex col-textbox">
-                <input id="checkAll" type="checkbox" />
+                <input id="checkAll" type="checkbox" @click="callCheckAllChange"/>
               </th>
               <th class="text-left title-column col-id"><p>Mã nhân viên</p></th>
               <th class="text-left title-column col-name">
@@ -54,7 +54,7 @@
               @dblclick="dblClickDisplayForm(emp.EmployeeCode)"
             >
               <td class="text-box-flex col-textbox">
-                <input class="check-employee" type="checkbox" />
+                <input @click="callCheckItemChange" class="check-employee" type="checkbox" />
               </td>
               <td class="table-data col-id">{{ emp.EmployeeCode || "" }}</td>
               <td class="table-data col-name">{{ emp.EmployeeName || "" }}</td>
@@ -145,7 +145,7 @@ import EmployeeDetail from '../employee/EmployeeDetail.vue'
 // import DialogAddSuccessful from '../employee/DialogAddSuccessful.vue'
 
 import {formatDateDDMMYYYY} from '../../script/format.js'
-import {showHideDropdownFixed} from '../../script/functions.js'
+import {showHideDropdownFixed, checkAllChange, checkItemChange} from '../../script/functions.js'
 import { display } from '@/script/common.js'
 
 export default {
@@ -166,6 +166,7 @@ export default {
 
       //Cách 2: Dùng axios
       this.getAllEmployee();
+
     },
     methods: {
       /**
@@ -271,6 +272,22 @@ export default {
           } catch (error) {
               console.log(error);
           }
+        },
+
+        /**
+         * Gọi hàm checkAllChange
+         * LCDAT (02/11/2022)
+         */
+        callCheckAllChange(){
+          return checkAllChange();
+        },
+
+        /**
+         * Gọi hàm callCheckItemChange
+         * LCDAT (02/11/2022)
+         */
+        callCheckItemChange(){
+          return checkItemChange();
         }
     },
     data() {

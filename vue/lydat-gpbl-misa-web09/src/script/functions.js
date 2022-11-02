@@ -73,3 +73,48 @@ export function showMenu(){
         console.log(error);
     }
 }
+
+/**
+ * Checkbox tích cho toàn bộ nhân viên
+ * Author: LCDAT (22/10/2022)
+ */
+
+ export function checkAllChange(){
+    try {
+        let checkEmployee = document.getElementsByClassName('check-employee');
+        for(let i=0; i< checkEmployee.length; i++){
+            if(document.getElementById('checkAll').checked == true){
+                checkEmployee[i].checked = true;
+            } else {
+                checkEmployee[i].checked = false;
+            }
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+/**
+ * Checkbox xử lý khi check từng nhân viên
+ * Author: LCDAT (22/10/2022)
+ */
+ export function checkItemChange(){
+    try {
+        let count = 0;
+        let checkAll = document.getElementById('checkAll');
+        let checkEmployee = document.getElementsByClassName('check-employee');
+        for(let i=0; i< checkEmployee.length; i++){
+            if(checkEmployee[i].checked == true){
+                count++;
+            }
+        }
+        if(count == checkEmployee.length){
+            checkAll.checked = true;
+        } else {
+            checkAll.checked = false;
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
