@@ -25,8 +25,17 @@ export default {
     name: 'WarningCheckData',
     props: ["checkError"],
     methods: {
+        
+        /**
+         * Dóng popup
+         * LCDAT (21/10/2022)
+         */
         closeWarning(){
-            display('wrapperCheckData', 'none');
+            try {
+                display('wrapperCheckData', 'none');
+            } catch (error) {
+                console.log(error);
+            }
         }
     },
     data() {

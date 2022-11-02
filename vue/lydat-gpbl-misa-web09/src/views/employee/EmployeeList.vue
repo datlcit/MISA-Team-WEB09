@@ -9,21 +9,6 @@
   </div>
   <div class="toolbar-and-table">
     <div class="toolbar-and-table-padding">
-      <div class="row-jus-end">
-        <div class="m-search">
-          <input id="searchTextField"
-            class="m-input"
-            type="text"
-            placeholder="Tìm theo mã, tên nhân viên"
-          />
-          <div class="m-icon-20 m-icon-search cs-pointer" @click="searchEmployee('searchTextField')"></div>
-        </div>
-        <div
-          class="m-icon-refresh m-icon-24 cs-pointer"
-          title="Tải lại dữ liệu"
-          @click="getAllEmployee"
-        ></div>
-      </div>
       <employee-table></employee-table>
       <employee-pagination></employee-pagination>
     </div>
@@ -33,9 +18,6 @@
 </template>
 
 <script>
-
-import axios from 'axios'
-
 
 import EmployeeDetail from './EmployeeDetail.vue';
 import EmployeeTable from './EmployeeTable.vue'
@@ -50,36 +32,19 @@ export default {
   props: [],
   methods: {
     /**
-     * Thêm mới nhân viên
+     * Hiển thị form Thêm mới nhân viên
      * LCDAT (30/10/2022)
      */
     btnAddOnclick(){
-       return showFormEmployeeInformation();
+       try {
+        return showFormEmployeeInformation();
+       } catch (error) {
+        console.log(error);
+       }
     },
-
-    /**
-     * Tìm kiếm nhân viên đang lỗi
-     * LCDAT(02/11/2022)
-     */
-    searchEmployee(keySearch){
-      try {
-        // document.querySelector("#tbodyEmployee")
-        let key = document.getElementById(keySearch).value;
-        console.log(key);
-        axios.get(`https://amis.manhnv.net/api/v1/Employees/filter?employeeFilter=${key}`).then((response) => {
-          this.employeesSearched = response.data;
-          console.log(this.employeesSearched);
-          this.$emit('resultSearch', this.employeesSearched.Data);
-        });
-      } catch (error) {
-          console.log(error);
-      }
-    }
-
   },
   data() {
     return {
-      employeesSearched: []
 
     };
   },

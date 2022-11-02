@@ -153,7 +153,23 @@ import {showMenu} from '../../script/functions.js'
         },
         data() {
             return {
-                
+                // sidebarItems: [
+                //     {icon: 'function-icon-overview', itemName: 'Tổng quan'},
+                //     {icon: 'function-icon-cash', itemName: 'Tiền mặt'},
+                //     {icon: 'function-icon-deposit', itemName: 'Tiền gửi'},
+                //     {icon: 'function-icon-shopping', itemName: 'Mua hàng'},
+                //     {icon: 'function-icon-sell', itemName: 'Bán hàng'},
+                //     {icon: 'function-icon-invoice', itemName: 'Quản lý hóa đơn'},
+                //     {icon: 'function-icon-warehouse', itemName: 'Kho'},
+                //     {icon: 'function-icon-tool', itemName: 'Công cụ dụng cụ'},
+                //     {icon: 'function-icon-fixed', itemName: 'Tài sản cố định'},
+                //     {icon: 'function-icon-tax', itemName: 'Thuế'},
+                //     {icon: 'function-icon-cost', itemName: 'Giá thành'},
+                //     {icon: 'function-icon-general', itemName: 'Tổng hợp'},
+                //     {icon: 'function-icon-budget', itemName: 'Ngân sách'},
+                //     {icon: 'function-icon-report', itemName: 'Báo cáo'},
+                //     {icon: 'function-icon-financial', itemName: 'Phân tích tài chính'},
+                // ]
             }
         },
     }

@@ -24,8 +24,16 @@ export default {
     name: 'WarningRequired',
     props: ["textError"],
     methods: {
+        /**
+         * ĐÓng popup
+         * LCDAT (31/10/2022)
+         */
         closeWarning(){
-            display('wrapperRequired', 'none');
+            try {
+                display('wrapperRequired', 'none');
+            } catch (error) {
+                console.log(error);
+            }
         }
     },
     data() {

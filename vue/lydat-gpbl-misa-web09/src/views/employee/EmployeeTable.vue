@@ -1,4 +1,19 @@
 <template>
+    <div class="row-jus-end">
+        <div class="m-search">
+          <input id="searchTextField"
+            class="m-input"
+            type="text"
+            placeholder="Tìm theo mã, tên nhân viên"
+          />
+          <div class="m-icon-20 m-icon-search cs-pointer" @click="searchEmployee('searchTextField')"></div>
+        </div>
+        <div
+          class="m-icon-refresh m-icon-24 cs-pointer"
+          title="Tải lại dữ liệu"
+          @click="getAllEmployee"
+        ></div>
+    </div>
     <div class="table-area">
         <table
           id="tblEmployee"
@@ -88,32 +103,6 @@
               </td>
             </tr>
           </tbody>
-
-          <!-- <tbody>
-                                    <tr class="table-row">
-                                        <td class="text-box-flex col-textbox">
-                                            <input class="check-employee" type="checkbox">
-                                        </td>
-                                        <td class="table-data col-id">MF1435</td>
-                                        <td class="table-data col-name">Lý Chính Đạt</td>
-                                        <td class="table-data col-gender">Nam</td>
-                                        <td class="table-data-date col-date-of-birth"><p>05/01/1999</p></td>
-                                        <td class="table-data col-identity-number">0123456789</td>
-                                        <td class="table-data col-duty">Fresher Web</td>
-                                        <td class="table-data col-unit">Khối Giải pháp bán lẻ</td>
-                                        <td class="table-data col-num-account">0123456789</td>
-                                        <td class="table-data col-bank">ACB</td>
-                                        <td class="table-data col-bank-branch">Duy Tân</td>
-                                        <td class="table-data table-edit td-edit-sticky col-edit">
-                                            <div class="cell-edit">
-                                                <p class="edit-text">Sửa</p>
-                                                <div class="wrap-btn-edit">
-                                                    <div class="btn-edit-function"></div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody> -->
         </table>
         <!--Dropdown menu Sửa-->
         <div id="editList" class="wrap-up-down-option edit-list">
@@ -127,8 +116,6 @@
         </div>
       </div>
 
-    <!-- <employee-list @resultSearch = getDataSearch></employee-list> -->
-
     <!-- Form thông tin nhân viên để đưa lên đầu table sau khi thêm xong -->
     <employee-detail @employeeAdded = getDataFromForm></employee-detail>
 
@@ -140,7 +127,7 @@
 
 import axios from 'axios'
 
-// import EmployeeList from '../employee/EmployeeList.vue'
+// import ToolbarFunctions from './ToolbarFunctions.vue'
 import EmployeeDetail from '../employee/EmployeeDetail.vue'
 // import DialogAddSuccessful from '../employee/DialogAddSuccessful.vue'
 
@@ -148,12 +135,13 @@ import {formatDateDDMMYYYY} from '../../script/format.js'
 import {showHideDropdownFixed, checkAllChange, checkItemChange} from '../../script/functions.js'
 import { display } from '@/script/common.js'
 
+import {API} from '../../script/config.js'  
 export default {
     name: 'EmployeeTable',
     components: {
       // DialogAddSuccessful,
-       EmployeeDetail, 
-      // EmployeeList
+       EmployeeDetail,
+      //  ToolbarFunctions
     },
     props: [],
     created() {
@@ -166,7 +154,6 @@ export default {
 
       //Cách 2: Dùng axios
       this.getAllEmployee();
-
     },
     methods: {
       /**
@@ -175,7 +162,7 @@ export default {
        */
         getAllEmployee(){
           try {
-            axios.get("https://amis.manhnv.net/api/v1/employees").then((response) => {
+            axios.get(`${API.EMPLOYEE}`).then((response) => {
               this.employees = response.data;
             });
           } catch (error) {
@@ -189,40 +176,81 @@ export default {
          * LCDAT(02/11/2022)
          */
         getDataFromForm(data){
-          data.GenderName = this.getGenderName(data.Gender);
-          this.employees.unshift(data);
-          console.log(data);
+          try {
+            data.GenderName = this.getGenderName(data.Gender);
+            this.employees.unshift(data);
+            console.log(data);
+          } catch (error) {
+            console.log(error);
+          }
         },
 
         /**
-         * Lấy dữ liệu thêm nhân viên và đẩy lên đầu
+         * Tìm kiếm nhân viên đang lỗi
+         * @param {string} keySearch nhập vào mã hoặc tên hoặc số điện thoại
+         * LCDAT(02/11/2022)
+         */
+        searchEmployee(keySearch){
+            try {
+                // document.querySelector("#tbodyEmployee")
+                let key = document.getElementById(keySearch).value;
+                axios.get(`${API.EMPLOYEE}/filter?employeeFilter=${key}`).then((response) => {
+                    this.employees = response.data.Data;
+                    // this.$emit("resultSearch", this.employeesSearched);
+                });
+            } catch (error) {
+                console.log(error);
+            }
+        },
+
+        /**
+         * Gán tên giới tính
          * @param {employeeGender} gender Truyền thông kí tự số của giới tính vào
          * @return {GenderName}
          * LCDAT(02/11/2022)
          */
         getGenderName(gender){
-            if(gender == 0){
-                return 'Nam';
-            }else if(gender == 1){
-                return 'Nữ';
-            } else if(gender == 2){
-                return 'Không xác định';
+            try {
+              if(gender == 0){
+                  return 'Nam';
+              }else if(gender == 1){
+                  return 'Nữ';
+              } else if(gender == 2){
+                  return 'Không xác định';
+              }
+            } catch (error) {
+              console.log(error);
             }
         },
 
+        /**
+         * Trả về danh sách tìm kiếm
+         * LCDAT(02/11/2022)
+         */
         getDataSearch(data){
-          this.employees = data;
-          console.log(data);
+          try {
+            this.employees = data;
+          } catch (error) {
+            console.log(error);
+          }
         },
 
         //Gọi tới hàm formatDateDDMMYYYY
         callFormatDate(dob){
-            return formatDateDDMMYYYY(dob);
+            try {
+              return formatDateDDMMYYYY(dob);
+            } catch (error) {
+              console.log(error);
+            }
         },
 
-        
+        // Gọi tới hàm showHideDropdownFixed
         callShowHideDropdownFixed(){
-          return showHideDropdownFixed();
+          try {
+            return showHideDropdownFixed();
+          } catch (error) {
+            console.log(error);
+          }
         },
 
         /**
@@ -232,7 +260,7 @@ export default {
          */
         deleteEmployee(id){
           try {
-            axios.delete(`https://amis.manhnv.net/api/v1/Employees/${id}`).then((res) => {
+            axios.delete(`${API.EMPLOYEE}/${id}`).then((res) => {
               if(res.status == 200){
                 // // Hiện thông báo đã xóa thành công
                 // display('successfulItem', 'flex');
@@ -250,27 +278,17 @@ export default {
             console.log(error);
           }
         },
-        dblClickDisplayForm(code){
-          this.searchEmployee(code);
-          return display('formAddEmployee', 'flex');
-        },
 
         /**
-         * Tìm kiếm nhân viên đang lỗi
-         * LCDAT(02/11/2022)
+         * Hiển thị form sửa nhân viên
+         * LCDAT (02/11/2022)
          */
-        searchEmployee(keySearch){
+        dblClickDisplayForm(){
           try {
-            // document.querySelector("#tbodyEmployee")
-            let key = document.getElementById(keySearch).value;
-            console.log(key);
-            axios.get(`https://amis.manhnv.net/api/v1/Employees/filter?employeeFilter=${key}`).then((response) => {
-              this.employeesSearched = response.data;
-              console.log(this.employeesSearched);
-              this.$emit('resultSearch', this.employeesSearched.Data);
-            });
+            // this.searchEmployee(code);
+            return display('formAddEmployee', 'flex');
           } catch (error) {
-              console.log(error);
+            console.log(error);
           }
         },
 
@@ -279,7 +297,11 @@ export default {
          * LCDAT (02/11/2022)
          */
         callCheckAllChange(){
-          return checkAllChange();
+          try {
+            return checkAllChange();
+          } catch (error) {
+            console.log(error);
+          }
         },
 
         /**
@@ -287,8 +309,14 @@ export default {
          * LCDAT (02/11/2022)
          */
         callCheckItemChange(){
-          return checkItemChange();
-        }
+          try {
+            return checkItemChange();
+          } catch (error) {
+            console.log(error);
+          }
+        },
+
+        
     },
     data() {
         return {

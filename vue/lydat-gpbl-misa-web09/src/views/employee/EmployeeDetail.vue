@@ -160,9 +160,13 @@ export default {
          * LCDAT(02/11/2022)
          */
         getNewEmployeeCode(){
-            axios.get("https://amis.manhnv.net/api/v1/Employees/NewEmployeeCode").then((res) =>{
-                this.employee.EmployeeCode = res.data;
-            })
+            try {
+                axios.get(`${API.EMPLOYEE}/NewEmployeeCode`).then((res) =>{
+                    this.employee.EmployeeCode = res.data;
+                 })
+            } catch (error) {
+                console.log(error);
+            }
         },
 
         /**
@@ -250,7 +254,11 @@ export default {
          * LCDAT(02/11/2022)
          */
         callShowHide(item){
-            return showHide(item);
+            try {
+                return showHide(item);
+            } catch (error) {
+                console.log(error);
+            }
         },
 
         /**
@@ -306,7 +314,7 @@ export default {
          */
         getDepartment(){
             try {
-                axios.get("https://amis.manhnv.net/api/v1/Departments").then((res) => {
+                axios.get(`${API.DEPARTMENT}`).then((res) => {
                     this.departments = res.data;
                 })
             } catch (error) {
@@ -321,10 +329,14 @@ export default {
          * LCDAT(01/11/2022)
          */
         chooseDepartment(depName, depId){
-            this.currentDepartment = depName;
-            this.employee.DepartmentId = depId;
-            this.employee.DepartmentName = depName;
-            display('comboboxUnitItems', 'none')
+            try {
+                this.currentDepartment = depName;
+                this.employee.DepartmentId = depId;
+                this.employee.DepartmentName = depName;
+                display('comboboxUnitItems', 'none')
+            } catch (error) {
+                console.log(error);
+            }
         }
 
     },
