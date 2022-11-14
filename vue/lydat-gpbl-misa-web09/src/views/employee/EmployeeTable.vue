@@ -263,11 +263,12 @@ export default {
             axios.delete(`${API.EMPLOYEE}/${id}`).then((res) => {
               if(res.status == 200){
                 // // Hiện thông báo đã xóa thành công
-                // display('successfulItem', 'flex');
-                // //Ẩn thông báo xóa thành công sau 5 giây
-                // setTimeout(function(){
-                //     display('successfulItem', 'none');
-                // }, 5000);
+                document.getElementById('successText').innerHTML = 'Xóa thành công!';
+                display('successfulItem', 'flex');
+                //Ẩn thông báo xóa thành công sau 5 giây
+                setTimeout(function(){
+                    display('successfulItem', 'none');
+                }, 5000);
                 // Ẩn khung danh sách
                 display('editList', 'none');
                 //Gọi lại hàm load
@@ -283,10 +284,14 @@ export default {
          * Hiển thị form sửa nhân viên
          * LCDAT (02/11/2022)
          */
-        dblClickDisplayForm(){
+        dblClickDisplayForm(code){
           try {
-            // this.searchEmployee(code);
-            return display('formAddEmployee', 'flex');
+          document.getElementById('titleForm').innerHTML = 'Sửa thông tin nhân viên';
+          console.log(code);
+          axios.get(`${API.EMPLOYEE}/filter?employeeFilter=${code}`).then((response) => {
+            this.employeeEdit = response.data.Data;
+          });
+          display('formAddEmployee', 'flex');
           } catch (error) {
             console.log(error);
           }
@@ -320,7 +325,8 @@ export default {
     },
     data() {
         return {
-            employees: [],
+            employeeEdit: {},
+            employees: []
         }
     },
 }

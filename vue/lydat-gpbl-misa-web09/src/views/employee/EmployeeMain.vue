@@ -37,6 +37,7 @@ export default {
      */
     btnAddOnclick(){
        try {
+        document.getElementById('titleForm').innerHTML = 'Thông tin nhân viên';
         return showFormEmployeeInformation();
        } catch (error) {
         console.log(error);
@@ -45,7 +46,7 @@ export default {
   },
   data() {
     return {
-
+      titleForm:""
     };
   },
 };

@@ -1,6 +1,6 @@
 
 import { createRouter, createWebHistory } from "vue-router";
-import EmployeeList from '../views/employee/EmployeeList.vue'
+import EmployeeList from '../views/employee/PopupFormDetail.vue'
 
 const routes = [
     { path: "/", component: EmployeeList},

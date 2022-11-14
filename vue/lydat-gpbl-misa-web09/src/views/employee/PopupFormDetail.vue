@@ -2,12 +2,12 @@
     <div id="formAddEmployee" class="bg-overlay">
         <div class="info-form">
             <div class="info-form-padding">
-                <form @submit.prevent="saveAndAdd()">
+                <form id="formEmp" @submit.prevent="saveAndAdd()">
                     <i class="icofont-question-circle cs-pointer" title="Câu hỏi thường gặp"></i>
                     <i id="formEmployeeClose" class="icofont-close-line cs-pointer" title="Đóng" @click="btnClose"></i>
                     <div class="title-checkbox-form row-jus-start">
                         <div class="info-form-title">
-                            <p>Thông tin nhân viên</p>
+                            <p id="titleForm"></p>
                         </div>
                         <div class="customer-or-provider row-jus-center">
                         <div class="is-customer row-jus-center">
@@ -119,7 +119,7 @@
                         <div class="row-jus-between info-btn-list">
                             <button tabindex="21" id="cancelForm" class="m-btn m-btn-bg-white" @click="btnClose()">Hủy</button>
                             <div class="row get-info-btn">
-                                <button @click="saveClicked = true" id="btnSave" tabindex="19" class="m-btn m-btn-bg-white get-btn" type="submit">Cất</button>
+                                <button @click="!saveClicked" id="btnSave" tabindex="19" class="m-btn m-btn-bg-white get-btn" type="submit">Cất</button>
                                 <button id="btnSaveAndAdd" tabindex="20" class="m-btn m-btn-bg-green" type="submit">Cất và Thêm</button>
                             </div>
                         </div>
@@ -131,9 +131,9 @@
     <!-- Popup không được để trống -->
    <warning-required :textError="this.errorsPopuptText"></warning-required>
    <!-- Popup trùng mã nhân viên -->
-    <warning-check-data :checkError = "this.errorsPopuptText"></warning-check-data>
+    <warning-check-data :checkError="this.errorsPopuptText"></warning-check-data>
     <!-- Thêm mới thành công -->
-    <dialog-add-successful :successText="'Thêm mới thành công!'"></dialog-add-successful>
+    <dialog-add-successful></dialog-add-successful>
 </template>
 <script>
 
@@ -144,17 +144,17 @@ import axios from 'axios';
 import {display, showHide} from '../../script/common.js'
 import {API} from '../../script/config.js'
 
-import WarningCheckData from '../employee/WarningCheckData.vue'
-import WarningRequired from '../employee/WarningRequired.vue';
-import DialogAddSuccessful from '../employee/DialogAddSuccessful.vue';
+import WarningCheckData from '../../components/dialog/WarningCheckData.vue'
+import WarningRequired from '../../components/dialog/WarningRequired.vue';
+import DialogAddSuccessful from '../../components/dialog/ToastMessageSuccessful.vue';
 export default {
     name: "EmployeeDetail",
     components: {
         DialogAddSuccessful, WarningRequired, WarningCheckData
     },
-    props: ["titleForm"],
+    props: [],
     methods: {
-
+  
         /**
          * Lấy mã nhân viên mới
          * LCDAT(02/11/2022)
@@ -164,6 +164,7 @@ export default {
                 axios.get(`${API.EMPLOYEE}/NewEmployeeCode`).then((res) =>{
                     this.employee.EmployeeCode = res.data;
                  })
+                // console.log("get");
             } catch (error) {
                 console.log(error);
             }
@@ -226,22 +227,20 @@ export default {
                 }
 
                 //Check nhập email
-                // let email = document.getElementById('txtEmail').value;
-                // let regexEmail = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-                // console.log(this.errors.Email);
-                // console.log(email.value);
-                // if(!regexEmail.test(email.value)){
-                //     // this.errors.Email = true;
-                //     // display('errorTextEmail', 'block');
-                //     // email.focus;
-                //     isValid = false;
-                //     alert("Sai")
-                // } else {
-                //     alert('Đúng')
-                //     // this.errors.Email = '';
-                //     // display('errorTextEmail', 'none')
-                // }
-                // console.log(isValid);
+                let email = document.getElementById('txtEmail').value;
+                let regexEmail = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                if(email){
+                    if(!regexEmail.test(email)){
+                        this.errors.Email = true;
+                        display('errorTextEmail', 'block');
+                        email.focus;
+                        isValid = false;
+                    } else {
+                        this.errors.Email = '';
+                        display('errorTextEmail', 'none')
+                    }
+                }
+                console.log(isValid);
                 return isValid;
             } catch (error) {
                 console.log(error);
@@ -261,6 +260,8 @@ export default {
             }
         },
 
+        
+
         /**
          * Thêm nhân viên mới
          * LCDAT(02/11/2022)
@@ -269,10 +270,8 @@ export default {
             try {
                 let statusCode = null;
                 if(this.validate()){
-                    this.$axiosRequest.post(`${API.EMPLOYEE}`, this.employee).then(response => {
-                    console.log(response);
+                    axios.post(`${API.EMPLOYEE}`, this.employee).then(response => {
                     statusCode = response.status;
-                    console.log(statusCode);
                     switch (statusCode) {
                         case 201:
                             // Hiện thông báo đã thêm mới thành công
@@ -287,6 +286,13 @@ export default {
                             }
                             this.saveClicked = false;
                             this.$emit("employeeAdded", this.employee);
+
+                            //reset
+                            this.employee = {};
+                            this.currentDepartment = '';
+
+                            //Lấy lại mã nv mới
+                            this.getNewEmployeeCode();
                             // Load lại dữ liệu
                             // loadData();
                             break;
@@ -303,7 +309,6 @@ export default {
                 });
             }
             } catch (error) {
-                console.log("error",error);
                 console.log(error);
             }
         },
@@ -377,6 +382,7 @@ export default {
             vIfForm: true,
         }
     },
+    
 }
 </script>
 <style scoped>
